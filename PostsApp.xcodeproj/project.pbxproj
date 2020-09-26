@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				79D7F01F10D0AC05B096AE50 /* Pods-PostsAppTests.debug.xcconfig */,
 				72EE83CA1E870655A84510DE /* Pods-PostsAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,13 +139,10 @@
 		DE27B0F4251FEBD400529D13 /* PostsApp */ = {
 			isa = PBXGroup;
 			children = (
-				DE27B0F5251FEBD400529D13 /* AppDelegate.swift */,
-				DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */,
-				DE27B0F9251FEBD400529D13 /* ViewController.swift */,
-				DE27B0FB251FEBD400529D13 /* Main.storyboard */,
-				DE27B0FE251FEBD700529D13 /* Assets.xcassets */,
-				DE27B100251FEBD700529D13 /* LaunchScreen.storyboard */,
-				DE27B103251FEBD700529D13 /* Info.plist */,
+				DEE3E9F0251FFDB4003EF386 /* Application */,
+				DEE3E9F4251FFDC8003EF386 /* Presentation */,
+				DEE3E9F5251FFDE5003EF386 /* Domain */,
+				DEE3E9F6251FFDEC003EF386 /* Data */,
 			);
 			path = PostsApp;
 			sourceTree = "<group>";
@@ -167,6 +163,97 @@
 				DE27B119251FEBD800529D13 /* Info.plist */,
 			);
 			path = PostsAppUITests;
+			sourceTree = "<group>";
+		};
+		DEE3E9F0251FFDB4003EF386 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DE27B0F5251FEBD400529D13 /* AppDelegate.swift */,
+				DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DEE3E9F4251FFDC8003EF386 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DEE3E9F8251FFE99003EF386 /* Base */,
+				DEE3E9FA251FFEAE003EF386 /* Features */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DEE3E9F5251FFDE5003EF386 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				DEE3E9FD251FFFA5003EF386 /* Model */,
+				DEE3E9F7251FFE85003EF386 /* UseCases */,
+				DEE3E9FC251FFF12003EF386 /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		DEE3E9F6251FFDEC003EF386 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DEE3E9F7251FFE85003EF386 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		DEE3E9F8251FFE99003EF386 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DE27B0FB251FEBD400529D13 /* Main.storyboard */,
+				DE27B0FE251FEBD700529D13 /* Assets.xcassets */,
+				DE27B100251FEBD700529D13 /* LaunchScreen.storyboard */,
+				DE27B103251FEBD700529D13 /* Info.plist */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DEE3E9F9251FFEA0003EF386 /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				DE27B0F9251FEBD400529D13 /* ViewController.swift */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		DEE3E9FA251FFEAE003EF386 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				DEE3E9F9251FFEA0003EF386 /* PostList */,
+				DEE3E9FB251FFECC003EF386 /* PostDetail */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		DEE3E9FB251FFECC003EF386 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		DEE3E9FC251FFF12003EF386 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		DEE3E9FD251FFFA5003EF386 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
