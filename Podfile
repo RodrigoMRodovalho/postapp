@@ -6,10 +6,15 @@ target 'PostsApp' do
   use_frameworks!
 
   # Pods for PostsApp
+  pod 'RxSwift', '~> 5'
+  pod 'Swinject'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'PostsAppTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxBlocking', '~> 5'
+    pod 'RxTest', '~> 5'
   end
 
   target 'PostsAppUITests' do
