@@ -14,7 +14,8 @@ class PostListViewController: BaseViewController<PostListViewModel>{
     var safeArea: UILayoutGuide!
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PostCell")
+        let nib = UINib(nibName: "PostTableViewCell",bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "PostCell")
         return tableView
     }()
 
@@ -80,8 +81,8 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row].authorName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        cell.authorNameLabel.text = data[indexPath.row].authorName
         return cell
     }
     
