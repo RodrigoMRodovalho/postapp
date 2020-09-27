@@ -98,6 +98,7 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.postLikesLabel.text = "\(post.likes) Likes"
         cell.postDatetimeLabel.text = post.createdDatetime
         cell.postPictureImageView.kf.setImage(with: URL(string: post.imageUrl))
+        cell.tagView.removeAllTags()
         post.tagList.forEach { tag in
             cell.tagView.addTag(tag)
         }
