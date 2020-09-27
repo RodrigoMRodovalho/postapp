@@ -32,6 +32,7 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         //tableView.backgroundColor = UIColor.lightGray
     }
     
@@ -88,6 +89,7 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.authorNameLabel.text = "\(post.authorFirstName) \(post.authorLastName)"
         cell.authorEmailLabel.text = post.authorEmail
         cell.authorProfilePictureImageView.layer.cornerRadius = CGFloat(15)
+        cell.authorProfilePictureImageView.kf.indicatorType = .activity
         cell.authorProfilePictureImageView.kf.setImage(with: URL(string: post.authorProfilePictureUrl))
         cell.postTitleLabel.text = post.title
         if (post.originalUrl.isEmpty) {
@@ -97,6 +99,7 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.postLikesLabel.text = "\(post.likes) Likes"
         cell.postDatetimeLabel.text = post.createdDatetime
+        cell.postPictureImageView.kf.indicatorType = .activity
         cell.postPictureImageView.kf.setImage(with: URL(string: post.imageUrl))
         cell.tagView.removeAllTags()
         post.tagList.forEach { tag in

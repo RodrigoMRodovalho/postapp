@@ -27,6 +27,7 @@ class PostTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        shadowAndBorderForCell(with: self)
         //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 
@@ -34,5 +35,20 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+}
+
+extension UITableViewCell{
+    func shadowAndBorderForCell(with tableViewCell: UITableViewCell){
+        tableViewCell.contentView.layer.borderWidth = 8
+        tableViewCell.contentView.layer.borderColor = UIColor.purple.cgColor
+        tableViewCell.contentView.layer.masksToBounds = true
+        tableViewCell.layer.shadowColor = UIColor.purple.cgColor
+        tableViewCell.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        tableViewCell.layer.shadowRadius = 2.0
+        tableViewCell.layer.shadowOpacity = 1.0
+        tableViewCell.layer.masksToBounds = false
+        tableViewCell.layer.shadowPath = UIBezierPath(roundedRect:tableViewCell.bounds,
+                                                      cornerRadius:tableViewCell.contentView.layer.cornerRadius).cgPath
     }
 }
