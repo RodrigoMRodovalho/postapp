@@ -8,19 +8,12 @@
 import UIKit
 import Swinject
 
-class PostListViewController: BaseViewController {
-
-    var viewModel: PostListViewModel?
+class PostListViewController: BaseViewController<PostListViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         viewModel?.foo()
-    }
-
-    override func injectDependencies(_ resolver: Resolver) {
-        viewModel = resolver.resolve(PostListViewModel.self)!
-    }
-    
+    }    
 }
 

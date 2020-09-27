@@ -26,16 +26,16 @@ extension Assembler {
     
 }
 
-class BaseViewController: UIViewController {
+class BaseViewController<VM>: UIViewController {
 
+    var viewModel: VM?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        injectDependencies(Assembler.sharedAssembler.resolver)
+        viewModel = Assembler.sharedAssembler.resolver.resolve(VM.self)
     }
-    
-    func injectDependencies(_ resolver: Resolver) {}
     
 
     /*
