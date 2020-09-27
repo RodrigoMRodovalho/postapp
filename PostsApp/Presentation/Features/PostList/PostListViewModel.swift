@@ -19,9 +19,12 @@ class PostListViewModel {
     
     func foo (){
         print("PostListViewModel - foo")
-        useCase.requestValues = GetPostRequestValues(index: 2)
-        useCase.run().subscribe { index in
-            print("PostListViewModel onNext \(index)")
+        useCase.run().subscribe { posts in
+            print("PostListViewModel onSuccess")
+            print("received posts \(posts.count)")
+            posts.forEach { (post) in
+                print("Post - Author Name: \(post.authorName)")
+            }
         } onError: { error in
             print("PostListViewModel onError \(error)")
         }.disposed(by: disposeBag)

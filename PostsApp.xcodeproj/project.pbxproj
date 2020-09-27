@@ -30,6 +30,8 @@
 		DE405F162520200E007C28D2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F152520200E007C28D2 /* HTTPMethod.swift */; };
 		DE405F1B25202247007C28D2 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F1A25202247007C28D2 /* RemoteServiceError.swift */; };
 		DE405F2E252047FF007C28D2 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F2D252047FF007C28D2 /* PostResponseModel.swift */; };
+		DE405F4D25204F22007C28D2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F4C25204F22007C28D2 /* Post.swift */; };
+		DE405F5A2520500D007C28D2 /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F592520500D007C28D2 /* DataMapper.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		DE405F152520200E007C28D2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		DE405F1A25202247007C28D2 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
 		DE405F2D252047FF007C28D2 /* PostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
+		DE405F4C25204F22007C28D2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		DE405F592520500D007C28D2 /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 		DE405EDD25200FEA007C28D2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DE405F5825204FF8007C28D2 /* mapper */,
 				DE405F0725201AAF007C28D2 /* remote */,
 				DE405EDE25201012007C28D2 /* PostRepository.swift */,
 			);
@@ -229,13 +234,37 @@
 		DE405F0725201AAF007C28D2 /* remote */ = {
 			isa = PBXGroup;
 			children = (
-				DE405F0825201AD4007C28D2 /* API.swift */,
-				DE405F1025201F5B007C28D2 /* RemoteService.swift */,
-				DE405F152520200E007C28D2 /* HTTPMethod.swift */,
-				DE405F1A25202247007C28D2 /* RemoteServiceError.swift */,
-				DE405F2D252047FF007C28D2 /* PostResponseModel.swift */,
+				DE405F5125204FC5007C28D2 /* service */,
+				DE405F3225204D4F007C28D2 /* model */,
 			);
 			path = remote;
+			sourceTree = "<group>";
+		};
+		DE405F3225204D4F007C28D2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DE405F2D252047FF007C28D2 /* PostResponseModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DE405F5125204FC5007C28D2 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				DE405F0825201AD4007C28D2 /* API.swift */,
+				DE405F152520200E007C28D2 /* HTTPMethod.swift */,
+				DE405F1025201F5B007C28D2 /* RemoteService.swift */,
+				DE405F1A25202247007C28D2 /* RemoteServiceError.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		DE405F5825204FF8007C28D2 /* mapper */ = {
+			isa = PBXGroup;
+			children = (
+				DE405F592520500D007C28D2 /* DataMapper.swift */,
+			);
+			path = mapper;
 			sourceTree = "<group>";
 		};
 		DEE3E9F0251FFDB4003EF386 /* Application */ = {
@@ -334,6 +363,7 @@
 		DEE3E9FD251FFFA5003EF386 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE405F4C25204F22007C28D2 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE405F5A2520500D007C28D2 /* DataMapper.swift in Sources */,
 				DE405EE82520108C007C28D2 /* DataDependencyAssembly.swift in Sources */,
 				DE405EC4252007EE007C28D2 /* PostListDependencyAssembly.swift in Sources */,
 				DE405EDF25201012007C28D2 /* PostRepository.swift in Sources */,
@@ -609,6 +640,7 @@
 				DE405EC925200B28007C28D2 /* UseCase.swift in Sources */,
 				DE27B0F6251FEBD400529D13 /* AppDelegate.swift in Sources */,
 				DE405ED425200C41007C28D2 /* GetPostsUseCase.swift in Sources */,
+				DE405F4D25204F22007C28D2 /* Post.swift in Sources */,
 				DE405F1125201F5B007C28D2 /* RemoteService.swift in Sources */,
 				DE27B0F8251FEBD400529D13 /* SceneDelegate.swift in Sources */,
 			);

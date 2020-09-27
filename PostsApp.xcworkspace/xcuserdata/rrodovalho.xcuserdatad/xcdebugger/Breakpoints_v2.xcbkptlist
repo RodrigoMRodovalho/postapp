@@ -66,53 +66,6 @@
             endingLineNumber = "55"
             landmarkName = "request(path:method:parameters:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5BCFBEAB-77BE-42DB-A649-3EFAB10FE1A6 - 186bda51fb3ca38e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;A&gt;) -&gt; ()) -&gt; RxSwift.Disposable in PostsApp.RemoteService.request&lt;A where A: Swift.Decodable&gt;(path: PostsApp.ApiPath, method: PostsApp.HTTPMethod, parameters: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
-                  moduleName = "PostsApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rrodovalho/Documents/projects/iOS/PostsApp/PostsApp/Data/Repository/remote/RemoteService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "653">
-               </Location>
-               <Location
-                  uuid = "5BCFBEAB-77BE-42DB-A649-3EFAB10FE1A6 - 186bda51fb3ca38e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;A&gt;) -&gt; ()) -&gt; RxSwift.Disposable in PostsApp.RemoteService.request&lt;A where A: Swift.Decodable&gt;(path: PostsApp.ApiPath, method: PostsApp.HTTPMethod, parameters: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
-                  moduleName = "PostsApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rrodovalho/Documents/projects/iOS/PostsApp/PostsApp/Data/Repository/remote/RemoteService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "678">
-               </Location>
-               <Location
-                  uuid = "5BCFBEAB-77BE-42DB-A649-3EFAB10FE1A6 - 186bda51fb3ca38e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;A&gt;) -&gt; ()) -&gt; RxSwift.Disposable in PostsApp.RemoteService.request&lt;A where A: Swift.Decodable&gt;(path: PostsApp.ApiPath, method: PostsApp.HTTPMethod, parameters: Swift.Dictionary&lt;Swift.String, Swift.String&gt;) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, A&gt;"
-                  moduleName = "PostsApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rrodovalho/Documents/projects/iOS/PostsApp/PostsApp/Data/Repository/remote/RemoteService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "852">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,38 +129,6 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "request(path:method:parameters:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "827CCDAA-FBC5-4ED5-8F11-C3A4FB960E01"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/RxSwift/RxSwift/Traits/Single.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "create(subscribe:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D2E62A0D-1A7D-435F-9E0B-D602EFBCABB1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/RxSwift/RxSwift/Traits/Single.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "create(subscribe:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

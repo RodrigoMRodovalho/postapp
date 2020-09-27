@@ -11,8 +11,14 @@ import Swinject
 class DataDependencyAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(PostRepositoryProtocol.self){ _ in
-            PostRepository()
+        
+        container.register(RemoteService.self){ _ in
+            RemoteService()
+        }.inObjectScope(.container)
+        
+        container.register(PostRepositoryProtocol.self){ r in
+            let service = r.resolve(RemoteService.self)!
+            return PostRepository(remoteService: service)
         }.inObjectScope(.container)
     }
     

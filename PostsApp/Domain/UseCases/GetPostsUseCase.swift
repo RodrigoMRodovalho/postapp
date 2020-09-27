@@ -8,15 +8,9 @@
 import Foundation
 import RxSwift
 
-class GetPostRequestValues: RequestValues {
-    let index: Int
-    
-    init (index: Int){
-        self.index = index
-    }
-}
+class GetPostRequestValues: RequestValues {}
 
-class GetPostUseCase: UseCase<GetPostRequestValues, Int> {
+class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     
     let repository: PostRepositoryProtocol
     
@@ -24,8 +18,8 @@ class GetPostUseCase: UseCase<GetPostRequestValues, Int> {
         self.repository = repository
     }
     
-    override func executeUseCase(requestValues: GetPostRequestValues?) -> Observable<Int> {
-        return Observable.just(repository.fetchPostData(index: requestValues!.index))
+    override func executeUseCase(requestValues: GetPostRequestValues?) -> Single<[Post]> {
+        return repository.fetchPostData(limit: 10, page: 1)
     }
     
 }

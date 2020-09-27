@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PostRepositoryProtocol {
-    func fetchPostData(index: Int) -> Int
+    func fetchPostData(limit: Int, page: Int) -> Single<[Post]>
 }

@@ -13,7 +13,7 @@ struct PostResponseModel: Decodable {
     var total, page, limit, offset: Int?
 }
 
-// MARK: - Datum
+// MARK: - Data
 struct Data: Decodable {
     var owner: Owner?
     var id: String?

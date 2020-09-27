@@ -10,21 +10,13 @@ import RxSwift
 
 struct PostRepository: PostRepositoryProtocol{
     
-    func fetchPostData(index: Int) -> Int {
-        
-//        let remoteService = RemoteService()
-//        remoteService.request(path: ApiPath.post)
-        
-        t().subscribe()
-        return index * index
-    }
+    let remoteService: RemoteService
     
-    
-    func t() -> Single<PostResponseModel> {
-        let remoteService = RemoteService()
-        return remoteService.request(path: ApiPath.post, parameters: ["limit":"5"]).map {
-            return $0
-        }
+    func fetchPostData(limit: Int, page: Int) -> Single<[Post]> {
+        return remoteService.request(path: ApiPath.post, parameters: ["limit": "\(limit)" , "page" : "\(page)"])
+            .map {
+                DataMapper().transform(postResponseModel: $0)
+            }
     }
     
 }
