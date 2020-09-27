@@ -12,21 +12,18 @@ class PostListViewModel {
     
     let disposeBag = DisposeBag()
     let useCase: GetPostUseCase
+    let observePostData: PublishSubject<Result<[Post], Error>> = PublishSubject()
     
     init(getPostUseCase: GetPostUseCase) {
         self.useCase = getPostUseCase
     }
     
-    func foo (){
-        print("PostListViewModel - foo")
+    func fetchPosts (){
         useCase.run().subscribe { posts in
-            print("PostListViewModel onSuccess")
-            print("received posts \(posts.count)")
-            posts.forEach { (post) in
-                print("Post - Author Name: \(post.authorName)")
-            }
+            self.observePostData.onNext(Result.success(posts))
         } onError: { error in
             print("PostListViewModel onError \(error)")
+            self.observePostData.onNext(Result.failure(error))
         }.disposed(by: disposeBag)
     }
     

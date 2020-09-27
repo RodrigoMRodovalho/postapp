@@ -14,14 +14,14 @@ class UseCase<RV: RequestValues, T> {
     
     var requestValues: RV?
     
-    func run() -> Single<T> {
+    func run() -> Maybe<T> {
         return executeUseCase(requestValues: requestValues)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.asyncInstance)
     }
     
-    func executeUseCase(requestValues: RV?) -> Single<T> {
-        return Single.error(NSError())
+    func executeUseCase(requestValues: RV?) -> Maybe<T> {
+        return Maybe.error(NSError())
     }
     
 }

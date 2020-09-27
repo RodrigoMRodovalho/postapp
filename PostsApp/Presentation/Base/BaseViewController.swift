@@ -7,10 +7,12 @@
 
 import UIKit
 import Swinject
+import RxSwift
 
 
 class BaseViewController<VM>: UIViewController {
 
+    let disposeBag = DisposeBag()
     var viewModel: VM?
     
     override func viewDidLoad() {
