@@ -9,23 +9,6 @@ import UIKit
 import Swinject
 
 
-//TODO move Assembler to ouside this class.
-extension Assembler {
-    
-    static let sharedAssembler: Assembler = {
-        
-        let container = Container()
-        let assembler = Assembler([
-            PostListDependencyAssembly(),
-            UseCaseDependencyAssembly(),
-            DataDependencyAssembly()
-        ], container: container)
-        
-        return assembler
-    }()
-    
-}
-
 class BaseViewController<VM>: UIViewController {
 
     var viewModel: VM?
