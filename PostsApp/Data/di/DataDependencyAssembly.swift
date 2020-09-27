@@ -11,7 +11,9 @@ import Swinject
 class DataDependencyAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(PostRepositoryProtocol.self) { _ in PostRepository() }
+        container.register(PostRepositoryProtocol.self){ _ in
+            PostRepository()
+        }.inObjectScope(.container)
     }
     
 }

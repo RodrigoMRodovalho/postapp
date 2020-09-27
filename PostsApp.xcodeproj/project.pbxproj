@@ -25,6 +25,11 @@
 		DE405ED925200EF2007C28D2 /* PostRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405ED825200EF2007C28D2 /* PostRepositoryProtocol.swift */; };
 		DE405EDF25201012007C28D2 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405EDE25201012007C28D2 /* PostRepository.swift */; };
 		DE405EE82520108C007C28D2 /* DataDependencyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405EE72520108C007C28D2 /* DataDependencyAssembly.swift */; };
+		DE405F0925201AD4007C28D2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F0825201AD4007C28D2 /* API.swift */; };
+		DE405F1125201F5B007C28D2 /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F1025201F5B007C28D2 /* RemoteService.swift */; };
+		DE405F162520200E007C28D2 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F152520200E007C28D2 /* HTTPMethod.swift */; };
+		DE405F1B25202247007C28D2 /* RemoteServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F1A25202247007C28D2 /* RemoteServiceError.swift */; };
+		DE405F2E252047FF007C28D2 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F2D252047FF007C28D2 /* PostResponseModel.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +80,11 @@
 		DE405ED825200EF2007C28D2 /* PostRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryProtocol.swift; sourceTree = "<group>"; };
 		DE405EDE25201012007C28D2 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		DE405EE72520108C007C28D2 /* DataDependencyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDependencyAssembly.swift; sourceTree = "<group>"; };
+		DE405F0825201AD4007C28D2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DE405F1025201F5B007C28D2 /* RemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
+		DE405F152520200E007C28D2 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		DE405F1A25202247007C28D2 /* RemoteServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceError.swift; sourceTree = "<group>"; };
+		DE405F2D252047FF007C28D2 /* PostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +212,7 @@
 		DE405EDD25200FEA007C28D2 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				DE405F0725201AAF007C28D2 /* remote */,
 				DE405EDE25201012007C28D2 /* PostRepository.swift */,
 			);
 			path = Repository;
@@ -213,6 +224,18 @@
 				DE405EE72520108C007C28D2 /* DataDependencyAssembly.swift */,
 			);
 			path = di;
+			sourceTree = "<group>";
+		};
+		DE405F0725201AAF007C28D2 /* remote */ = {
+			isa = PBXGroup;
+			children = (
+				DE405F0825201AD4007C28D2 /* API.swift */,
+				DE405F1025201F5B007C28D2 /* RemoteService.swift */,
+				DE405F152520200E007C28D2 /* HTTPMethod.swift */,
+				DE405F1A25202247007C28D2 /* RemoteServiceError.swift */,
+				DE405F2D252047FF007C28D2 /* PostResponseModel.swift */,
+			);
+			path = remote;
 			sourceTree = "<group>";
 		};
 		DEE3E9F0251FFDB4003EF386 /* Application */ = {
@@ -579,9 +602,14 @@
 				DE405ECF25200BA4007C28D2 /* UseCaseDependencyAssembly.swift in Sources */,
 				DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */,
 				DE27B0FA251FEBD400529D13 /* PostListViewController.swift in Sources */,
+				DE405F2E252047FF007C28D2 /* PostResponseModel.swift in Sources */,
+				DE405F162520200E007C28D2 /* HTTPMethod.swift in Sources */,
+				DE405F0925201AD4007C28D2 /* API.swift in Sources */,
+				DE405F1B25202247007C28D2 /* RemoteServiceError.swift in Sources */,
 				DE405EC925200B28007C28D2 /* UseCase.swift in Sources */,
 				DE27B0F6251FEBD400529D13 /* AppDelegate.swift in Sources */,
 				DE405ED425200C41007C28D2 /* GetPostsUseCase.swift in Sources */,
+				DE405F1125201F5B007C28D2 /* RemoteService.swift in Sources */,
 				DE27B0F8251FEBD400529D13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
