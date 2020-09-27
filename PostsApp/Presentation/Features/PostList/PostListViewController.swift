@@ -32,6 +32,7 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        //tableView.backgroundColor = UIColor.lightGray
     }
     
     override func viewDidLoad() {
@@ -86,13 +87,20 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         let post = data[indexPath.row]
         cell.authorNameLabel.text = "\(post.authorFirstName) \(post.authorLastName)"
         cell.authorEmailLabel.text = post.authorEmail
-        cell.authorProfilePictureImageView.layer.cornerRadius = CGFloat(20)
+        cell.authorProfilePictureImageView.layer.cornerRadius = CGFloat(15)
         cell.authorProfilePictureImageView.kf.setImage(with: URL(string: post.authorProfilePictureUrl))
         cell.postTitleLabel.text = post.title
-        cell.postUrlLabel.text = post.originalUrl
+        if (post.originalUrl.isEmpty) {
+            cell.postUrlLabel.isHidden = true
+        } else {
+            cell.postUrlLabel.text = post.originalUrl
+        }
         cell.postLikesLabel.text = "\(post.likes) Likes"
         cell.postDatetimeLabel.text = post.createdDatetime
         cell.postPictureImageView.kf.setImage(with: URL(string: post.imageUrl))
+        post.tagList.forEach { tag in
+            cell.tagView.addTag(tag)
+        }
         
         return cell
     }

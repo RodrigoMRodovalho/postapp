@@ -12,8 +12,8 @@ class GetPostRequestValues: RequestValues {}
 
 class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     
-    var currentPage = 0
-    var isExecuting = false
+    private var currentPage = 0
+    private var isExecuting = false
     let repository: PostRepositoryProtocol
     
     init (repository: PostRepositoryProtocol){
@@ -33,7 +33,7 @@ class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
             self.isExecuting = false
             return $0
         }
-//        .delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+        //.delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
 
     }
     

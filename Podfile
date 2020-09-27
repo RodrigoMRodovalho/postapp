@@ -9,6 +9,7 @@ target 'PostsApp' do
   pod 'RxSwift', '~> 5'
   pod 'Swinject'
   pod 'Kingfisher', '~> 5.0'
+  pod 'TagListView', '~> 1.0'
 
   target 'PostsAppTests' do
     inherit! :search_paths
