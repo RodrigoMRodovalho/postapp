@@ -13,7 +13,6 @@
 		DE27B0F6251FEBD400529D13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27B0F5251FEBD400529D13 /* AppDelegate.swift */; };
 		DE27B0F8251FEBD400529D13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */; };
 		DE27B0FA251FEBD400529D13 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27B0F9251FEBD400529D13 /* PostListViewController.swift */; };
-		DE27B0FD251FEBD400529D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE27B0FB251FEBD400529D13 /* Main.storyboard */; };
 		DE27B0FF251FEBD700529D13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE27B0FE251FEBD700529D13 /* Assets.xcassets */; };
 		DE27B102251FEBD700529D13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE27B100251FEBD700529D13 /* LaunchScreen.storyboard */; };
 		DE27B10D251FEBD800529D13 /* PostsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE27B10C251FEBD800529D13 /* PostsAppTests.swift */; };
@@ -34,6 +33,7 @@
 		DE405F5A2520500D007C28D2 /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE405F592520500D007C28D2 /* DataMapper.swift */; };
 		DE84CAFC252101C00090D0C0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */; };
 		DE84CAFD252101C00090D0C0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */; };
+		DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,6 @@
 		DE27B0F5251FEBD400529D13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DE27B0F9251FEBD400529D13 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
-		DE27B0FC251FEBD400529D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE27B0FE251FEBD700529D13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE27B101251FEBD700529D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE27B103251FEBD700529D13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		DE405F592520500D007C28D2 /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSplitFactory.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +287,7 @@
 				DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */,
 				DE27B0FE251FEBD700529D13 /* Assets.xcassets */,
 				DE27B103251FEBD700529D13 /* Info.plist */,
+				DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -332,7 +333,6 @@
 		DEE3E9F8251FFE99003EF386 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				DE27B0FB251FEBD400529D13 /* Main.storyboard */,
 				DE27B100251FEBD700529D13 /* LaunchScreen.storyboard */,
 				DEE3EA0625200127003EF386 /* BaseViewController.swift */,
 			);
@@ -493,7 +493,6 @@
 			files = (
 				DE27B102251FEBD700529D13 /* LaunchScreen.storyboard in Resources */,
 				DE27B0FF251FEBD700529D13 /* Assets.xcassets in Resources */,
-				DE27B0FD251FEBD400529D13 /* Main.storyboard in Resources */,
 				DE84CAFD252101C00090D0C0 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,6 +652,7 @@
 				DE405F162520200E007C28D2 /* HTTPMethod.swift in Sources */,
 				DE405F0925201AD4007C28D2 /* API.swift in Sources */,
 				DE405F1B25202247007C28D2 /* RemoteServiceError.swift in Sources */,
+				DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */,
 				DE405EC925200B28007C28D2 /* UseCase.swift in Sources */,
 				DE27B0F6251FEBD400529D13 /* AppDelegate.swift in Sources */,
 				DE405ED425200C41007C28D2 /* GetPostsUseCase.swift in Sources */,
@@ -694,14 +694,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DE27B0FB251FEBD400529D13 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE27B0FC251FEBD400529D13 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DE27B100251FEBD700529D13 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

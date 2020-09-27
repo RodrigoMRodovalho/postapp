@@ -41,9 +41,9 @@ class PostTableViewCell: UITableViewCell {
 extension UITableViewCell{
     func shadowAndBorderForCell(with tableViewCell: UITableViewCell){
         tableViewCell.contentView.layer.borderWidth = 8
-        tableViewCell.contentView.layer.borderColor = UIColor.purple.cgColor
+        tableViewCell.contentView.layer.borderColor = UIColor.systemPurple.cgColor
         tableViewCell.contentView.layer.masksToBounds = true
-        tableViewCell.layer.shadowColor = UIColor.purple.cgColor
+        tableViewCell.layer.shadowColor = UIColor.systemPurple.cgColor
         tableViewCell.layer.shadowOffset = CGSize(width: 0, height: 4.0)
         tableViewCell.layer.shadowRadius = 2.0
         tableViewCell.layer.shadowOpacity = 1.0

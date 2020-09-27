@@ -45,7 +45,6 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         viewModel?.observePostData.subscribe(onNext: { (result) in
             self.updateTableView(result: result)
         }).disposed(by: disposeBag)
-        
     }
     
     private func updateTableView(result: Result<[Post], Error>) {
@@ -64,6 +63,7 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         super.viewDidLayoutSubviews()
         tableView.frame = view.frame
         viewModel?.fetchPosts()
+        title = "Posts"
     }
     
     private func createSpinnerFooter() -> UIView {
