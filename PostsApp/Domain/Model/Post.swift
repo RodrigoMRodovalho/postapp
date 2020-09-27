@@ -8,5 +8,14 @@
 import Foundation
 
 struct Post {
-    let authorName: String
+    let authorFirstName: String
+    let authorLastName: String
+    let authorEmail: String
+    let authorProfilePictureUrl: String
+    let title: String
+    let originalUrl: String
+    let likes: Int
+    let createdDatetime: String
+    let tagList: [String]
+    let imageUrl: String
 }

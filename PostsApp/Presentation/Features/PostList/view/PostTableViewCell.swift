@@ -9,7 +9,16 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var authorProfilePictureImageView: UIImageView!
     @IBOutlet weak var authorNameLabel: UILabel!
+    @IBOutlet weak var authorEmailLabel: UILabel!
+    @IBOutlet weak var postPictureImageView: UIImageView!
+    @IBOutlet weak var tagView: UIView!
+    @IBOutlet weak var postTitleLabel: UILabel!
+    @IBOutlet weak var postUrlLabel: UILabel!
+    @IBOutlet weak var postLikesLabel: UILabel!
+    @IBOutlet weak var postDatetimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

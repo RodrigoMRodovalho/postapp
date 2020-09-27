@@ -16,7 +16,17 @@ struct DataMapper {
         var postArray : [Post] = []
         
         postResponseModel.data?.forEach({ (data) in
-            postArray.append(Post(authorName: data.owner?.firstName ?? ""))
+            let post = Post(authorFirstName: data.owner?.firstName ?? "",
+                            authorLastName: data.owner?.lastName ?? "",
+                            authorEmail: data.owner?.email ?? "",
+                            authorProfilePictureUrl: (data.owner?.picture!)!,
+                            title: data.text!,
+                            originalUrl: data.link ?? "",
+                            likes: data.likes!,
+                            createdDatetime: data.publishDate!,
+                            tagList: data.tags!,
+                            imageUrl: data.image!)
+            postArray.append(post)
         })
             
         return postArray

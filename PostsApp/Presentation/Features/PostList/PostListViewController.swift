@@ -8,6 +8,7 @@
 import UIKit
 import Swinject
 import RxSwift
+import Kingfisher
 
 class PostListViewController: BaseViewController<PostListViewModel>{
     
@@ -82,7 +83,17 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
-        cell.authorNameLabel.text = data[indexPath.row].authorName
+        let post = data[indexPath.row]
+        cell.authorNameLabel.text = "\(post.authorFirstName) \(post.authorLastName)"
+        cell.authorEmailLabel.text = post.authorEmail
+        cell.authorProfilePictureImageView.layer.cornerRadius = CGFloat(20)
+        cell.authorProfilePictureImageView.kf.setImage(with: URL(string: post.authorProfilePictureUrl))
+        cell.postTitleLabel.text = post.title
+        cell.postUrlLabel.text = post.originalUrl
+        cell.postLikesLabel.text = "\(post.likes) Likes"
+        cell.postDatetimeLabel.text = post.createdDatetime
+        cell.postPictureImageView.kf.setImage(with: URL(string: post.imageUrl))
+        
         return cell
     }
     
