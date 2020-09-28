@@ -41,6 +41,7 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
         title = "Comments"
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         viewModel?.observePostCommentsData.subscribe(onNext: { (result) in
             self.updateTableView(result: result)
@@ -80,7 +81,7 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
     
 }
 
-extension PostCommentsViewController: UITableViewDataSource {
+extension PostCommentsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -97,6 +98,10 @@ extension PostCommentsViewController: UITableViewDataSource {
         cell.messageLabel.text = comment.message
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
