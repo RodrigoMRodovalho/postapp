@@ -17,7 +17,7 @@ class PostListViewController: BaseViewController<PostListViewModel>{
     var safeArea: UILayoutGuide!
     
     private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         let nib = UINib(nibName: "PostTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "PostCell")
         return tableView
@@ -39,6 +39,7 @@ class PostListViewController: BaseViewController<PostListViewModel>{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Posts"
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,6 +47,8 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         viewModel?.observePostData.subscribe(onNext: { (result) in
             self.updateTableView(result: result)
         }).disposed(by: disposeBag)
+        
+        viewModel?.fetchPosts()
     }
     
     private func updateTableView(result: Result<[Post], Error>) {
@@ -58,13 +61,6 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         }
         tableView.reloadData()
         tableView.tableFooterView = nil
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.frame
-        viewModel?.fetchPosts()
-        title = "Posts"
     }
     
     private func createSpinnerFooter() -> UIView {
@@ -114,7 +110,8 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailsController = PostCommentsViewController()
         detailsController.post = data[indexPath.row]
-        self.showDetailViewController(detailsController, sender: self)
+        let navigationController = UINavigationController(rootViewController: detailsController)
+        self.showDetailViewController(navigationController, sender: self)
     }
 
 }

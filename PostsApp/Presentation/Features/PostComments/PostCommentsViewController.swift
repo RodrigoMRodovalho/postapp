@@ -15,14 +15,17 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
     var safeArea: UILayoutGuide!
     
     private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         let nib = UINib(nibName: "CommentTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CommentCell")
         return tableView
     }()
     
-    override func loadView() {
-        super.loadView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        title = "Comments"
+        
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         view.addSubview(tableView)
@@ -32,13 +35,6 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        //tableView.backgroundColor = UIColor.lightGray
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        title = "Comments"
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -62,12 +58,6 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
         }
         tableView.reloadData()
         tableView.tableFooterView = nil
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        tableView.frame = view.frame
-        viewModel?.fetchComments(withPost: post!)
     }
     
     private func createSpinnerFooter() -> UIView {
