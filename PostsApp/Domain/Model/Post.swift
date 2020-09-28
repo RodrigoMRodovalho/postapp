@@ -8,6 +8,7 @@
 import Foundation
 
 struct Post {
+    let id: String
     let authorFirstName: String
     let authorLastName: String
     let authorEmail: String

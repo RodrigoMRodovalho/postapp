@@ -17,5 +17,9 @@ class UseCaseDependencyAssembly: Assembly {
             return GetPostUseCase(repository: repo!)
         }
         
+        container.register(GetPostCommentsUseCase.self) { r in
+            let repo = r.resolve(PostRepositoryProtocol.self)
+            return GetPostCommentsUseCase(repository: repo!)
+        }
     }
 }

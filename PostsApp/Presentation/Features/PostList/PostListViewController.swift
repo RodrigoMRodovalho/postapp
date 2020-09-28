@@ -110,8 +110,10 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected \(data[indexPath.row])")
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailsController = PostCommentsViewController()
+        detailsController.post = data[indexPath.row]
+        self.showDetailViewController(detailsController, sender: self)
     }
 
 }

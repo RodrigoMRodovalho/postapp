@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum ApiPath: String {
+enum ApiPath {
     case post
-    //case postComment = "post/{postId}/comment"
+    case postComment(postId: String)
 }
 
 struct API {
@@ -26,7 +26,13 @@ struct API {
     }
     
     var url : String {
-        "\(baseUrl)/\(path.rawValue)"
+        
+        switch path {
+        case .post:
+            return "\(baseUrl)/post"
+        case .postComment(let postId):
+            return "\(baseUrl)/post/\(postId)/comment"
+        }
     }
     
 }

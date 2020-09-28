@@ -10,13 +10,12 @@ import Foundation
 struct DataMapper {
     
     func transform(postResponseModel: PostResponseModel) -> [Post] {
-        
-        //TODO make post objects
-        
+    
         var postArray : [Post] = []
         
         postResponseModel.data?.forEach({ (data) in
-            let post = Post(authorFirstName: data.owner?.firstName ?? "",
+            let post = Post(id: data.id ?? "" ,
+                            authorFirstName: data.owner?.firstName ?? "",
                             authorLastName: data.owner?.lastName ?? "",
                             authorEmail: data.owner?.email ?? "",
                             authorProfilePictureUrl: (data.owner?.picture!)!,
@@ -30,6 +29,23 @@ struct DataMapper {
         })
             
         return postArray
+    }
+    
+    func transform(commentResponseModel: CommentResponseModel) -> [Comment] {
+        
+        var commentArray : [Comment] = []
+        
+        commentResponseModel.data?.forEach({ (data) in
+            let comment = Comment(id: data.id ?? "",
+                                  authorFirstName: data.owner?.firstName ?? "",
+                                  authorLastName: data.owner?.lastName ?? "",
+                                  message: data.message ?? "",
+                                  createDatetime: data.publishDate ?? "")
+            commentArray.append(comment)
+        })
+        
+        return commentArray
+        
     }
     
 }

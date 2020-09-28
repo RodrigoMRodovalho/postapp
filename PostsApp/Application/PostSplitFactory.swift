@@ -21,6 +21,9 @@ final class PostSplitFactory {
         
         splitViewController.viewControllers = [navigationController]
         splitViewController.preferredDisplayMode = UISplitViewController.DisplayMode.oneBesideSecondary
+        splitViewController.maximumPrimaryColumnWidth = CGFloat(MAXFLOAT);
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.6;
+
         splitViewController.delegate = self
         
         return splitViewController

@@ -23,10 +23,3 @@ struct Data: Decodable {
     var link: String?
     var likes: Int?
 }
-
-// MARK: - Owner
-struct Owner: Decodable {
-    var id, email, title: String?
-    var picture: String?
-    var firstName, lastName: String?
-}

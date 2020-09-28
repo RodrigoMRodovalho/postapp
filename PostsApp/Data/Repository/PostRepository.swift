@@ -11,12 +11,19 @@ import RxSwift
 struct PostRepository: PostRepositoryProtocol{
     
     let remoteService: RemoteService
+    let dataMapper: DataMapper
     
     func fetchPostData(limit: Int, page: Int) -> Single<[Post]> {
         return remoteService.request(path: ApiPath.post, parameters: ["limit": "\(limit)" , "page" : "\(page)"])
             .map {
-                DataMapper().transform(postResponseModel: $0)
+                dataMapper.transform(postResponseModel: $0)
             }
     }
     
+    func fetchPostComments(withId: String, limit: Int, page: Int) -> Single<[Comment]> {
+        return remoteService.request(path: ApiPath.postComment(postId: withId), parameters: ["limit": "\(limit)" , "page" : "\(page)"])
+            .map {
+                dataMapper.transform(commentResponseModel: $0)
+            }
+    }
 }

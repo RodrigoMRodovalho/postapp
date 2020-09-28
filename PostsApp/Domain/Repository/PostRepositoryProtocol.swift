@@ -10,4 +10,5 @@ import RxSwift
 
 protocol PostRepositoryProtocol {
     func fetchPostData(limit: Int, page: Int) -> Single<[Post]>
+    func fetchPostComments(withId: String, limit: Int, page: Int) -> Single<[Comment]>
 }

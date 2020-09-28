@@ -8,12 +8,18 @@
 import Foundation
 import Swinject
 
-class PostListDependencyAssembly : Assembly {
+class FeaturesDependencyAssembly : Assembly {
     
     func assemble(container: Container) {
+        
         container.register(PostListViewModel.self) { r in
             let useCase = r.resolve(GetPostUseCase.self)!
             return PostListViewModel(getPostUseCase: useCase)
+        }
+        
+        container.register(PostCommentslViewModel.self) { r in
+            let useCase = r.resolve(GetPostCommentsUseCase.self)!
+            return PostCommentslViewModel(getPostCommentsUseCase: useCase)
         }
     }
 

@@ -1,16 +1,18 @@
 //
-//  GetPostsUseCase.swift
+//  GetPostCommentsUseCase.swift
 //  PostsApp
 //
-//  Created by Rodrigo Rodovalho on 26/09/20.
+//  Created by Rodrigo Rodovalho on 27/09/20.
 //
 
 import Foundation
 import RxSwift
 
-struct GetPostRequestValues: RequestValues {}
+struct GetPostCommentsRequestValues: RequestValues {
+    let postId: String
+}
 
-class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
+class GetPostCommentsUseCase: UseCase<GetPostCommentsRequestValues, [Comment]> {
     
     private var currentPage = -1
     private var isExecuting = false
@@ -20,7 +22,7 @@ class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
         self.repository = repository
     }
     
-    override func executeUseCase(requestValues: GetPostRequestValues?) -> Maybe<[Post]> {
+    override func executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]> {
         
         if (isExecuting) {
             return Maybe.empty()
@@ -29,11 +31,10 @@ class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
         isExecuting = true
 
         currentPage += 1
-        return repository.fetchPostData(limit: 10, page: currentPage).asMaybe().map {
+        return repository.fetchPostComments(withId: requestValues!.postId, limit: 10, page: currentPage).asMaybe().map {
             self.isExecuting = false
             return $0
         }
         //.delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
     }
-    
 }

@@ -13,7 +13,7 @@ extension Assembler {
     static let sharedAssembler: Assembler = {
         let container = Container()
         let assembler = Assembler([
-            PostListDependencyAssembly(),
+            FeaturesDependencyAssembly(),
             UseCaseDependencyAssembly(),
             DataDependencyAssembly()
         ], container: container)

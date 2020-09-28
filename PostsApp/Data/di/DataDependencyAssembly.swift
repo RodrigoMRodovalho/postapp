@@ -16,9 +16,14 @@ class DataDependencyAssembly: Assembly {
             RemoteService()
         }.inObjectScope(.container)
         
+        container.register(DataMapper.self){ _ in
+            DataMapper()
+        }.inObjectScope(.container)
+        
         container.register(PostRepositoryProtocol.self){ r in
             let service = r.resolve(RemoteService.self)!
-            return PostRepository(remoteService: service)
+            let mapper = r.resolve(DataMapper.self)!
+            return PostRepository(remoteService: service, dataMapper: mapper)
         }.inObjectScope(.container)
     }
     
