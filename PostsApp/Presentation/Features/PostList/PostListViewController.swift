@@ -12,15 +12,16 @@ import Kingfisher
 
 class PostListViewController: BaseViewController<PostListViewModel>{
     
+    private var data = [Post]()
+    
     var safeArea: UILayoutGuide!
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         let nib = UINib(nibName: "PostTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "PostCell")
         return tableView
     }()
-
-    private var data = [Post]()
     
     override func loadView() {
         super.loadView()

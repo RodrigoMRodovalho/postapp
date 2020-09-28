@@ -39,6 +39,7 @@ struct DataMapper {
             let comment = Comment(id: data.id ?? "",
                                   authorFirstName: data.owner?.firstName ?? "",
                                   authorLastName: data.owner?.lastName ?? "",
+                                  authorPictureUrl: data.owner?.picture ?? "",
                                   message: data.message ?? "",
                                   createDatetime: data.publishDate ?? "")
             commentArray.append(comment)
