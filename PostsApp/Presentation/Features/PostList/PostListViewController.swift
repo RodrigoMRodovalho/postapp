@@ -28,6 +28,10 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
         view.addSubview(tableView)
+        let indicator = UIActivityIndicatorView()
+        tableView.backgroundView = indicator
+        indicator.startAnimating()
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -59,6 +63,8 @@ class PostListViewController: BaseViewController<PostListViewModel>{
             //TODO handle error
             break
         }
+    
+        tableView.backgroundView = nil
         tableView.reloadData()
         tableView.tableFooterView = nil
     }
