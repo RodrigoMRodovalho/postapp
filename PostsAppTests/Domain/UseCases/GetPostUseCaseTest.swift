@@ -17,6 +17,7 @@ class GetPostsUseCaseTest: XCTestCase {
 
     var sut : GetPostUseCase!
     var repositoryProtocol: MockPostRepositoryProtocol!
+    let testUtl = TestUtil()
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -42,9 +43,9 @@ class GetPostsUseCaseTest: XCTestCase {
     
     func testGetPostUseCase_WhenValidPostsFetched_ShouldReturnAllData() throws {
         
-        let post1 = createPost(1)
-        let post2 = createPost(2)
-        let post3 = createPost(3)
+        let post1 = testUtl.createPost(1)
+        let post2 = testUtl.createPost(2)
+        let post3 = testUtl.createPost(3)
         
         let fetchedData = [post1, post2, post3]
         
@@ -62,8 +63,8 @@ class GetPostsUseCaseTest: XCTestCase {
     
     func testGetPostUseCase_WhenFetchingNextPage_ShouldReturnData() throws {
         
-        let post1 = createPost(1)
-        let post2 = createPost(2)
+        let post1 = testUtl.createPost(1)
+        let post2 = testUtl.createPost(2)
         
         stub(repositoryProtocol) {  repositoryProtocol in
             when(repositoryProtocol.fetchPostData(limit: 10, page: 0)).thenReturn(Single.just([post1]))
@@ -86,9 +87,9 @@ class GetPostsUseCaseTest: XCTestCase {
         let expectation = self.expectation(description: "GetPostUseCase")
         
         stub(repositoryProtocol) {  repositoryProtocol in
-            when(repositoryProtocol.fetchPostData(limit: 10, page: 0)).thenReturn(Single.just([createPost(1)])
+            when(repositoryProtocol.fetchPostData(limit: 10, page: 0)).thenReturn(Single.just([testUtl.createPost(1)])
                                                                                     .delay(RxTimeInterval.seconds(2), scheduler: ConcurrentDispatchQueueScheduler(qos: .background) ))
-            when(repositoryProtocol.fetchPostData(limit: 10, page: 1)).thenReturn(Single.just([createPost(2)]))
+            when(repositoryProtocol.fetchPostData(limit: 10, page: 1)).thenReturn(Single.just([testUtl.createPost(2)]))
         }
         
         XCTAssertEqual(-1, sut.currentPage)
@@ -126,10 +127,5 @@ class GetPostsUseCaseTest: XCTestCase {
             XCTAssertEqual(error as? RemoteServiceError, RemoteServiceError.notConnectedToInternet)
         }
     }
-    
-    private func createPost(_ identifier: Int) -> Post {
-        return Post(id: "id\(identifier)", authorFirstName: "first\(identifier)", authorLastName: "last\(identifier)", authorEmail: "email\(identifier)", authorProfilePictureUrl: "profile\(identifier)", title: "title\(identifier)", originalUrl: "original\(identifier)", likes: identifier, createdDatetime: "time\(identifier)", tagList: ["tag\(identifier)"], imageUrl: "image\(identifier)")
-    }
-
 
 }

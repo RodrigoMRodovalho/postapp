@@ -1,4 +1,109 @@
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-02 03:46:25 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-02 21:55:47 +0000
+
+//
+//  RemoteServiceProtocol.swift
+//  PostsApp
+//
+//  Created by Rodrigo Rodovalho on 02/10/20.
+//
+
+import Cuckoo
+@testable import PostsApp
+
+import RxSwift
+
+
+ class MockRemoteServiceProtocol: RemoteServiceProtocol, Cuckoo.ProtocolMock {
+    
+     typealias MocksType = RemoteServiceProtocol
+    
+     typealias Stubbing = __StubbingProxy_RemoteServiceProtocol
+     typealias Verification = __VerificationProxy_RemoteServiceProtocol
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+
+    
+    private var __defaultImplStub: RemoteServiceProtocol?
+
+     func enableDefaultImplementation(_ stub: RemoteServiceProtocol) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+     func request<T: Decodable>(path: ApiPath, method: HTTPMethod, parameters: [String:String]) -> Single<T> {
+        
+    return cuckoo_manager.call("request(path: ApiPath, method: HTTPMethod, parameters: [String:String]) -> Single<T>",
+            parameters: (path, method, parameters),
+            escapingParameters: (path, method, parameters),
+            superclassCall:
+                
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                ,
+            defaultCall: __defaultImplStub!.request(path: path, method: method, parameters: parameters))
+        
+    }
+    
+
+	 struct __StubbingProxy_RemoteServiceProtocol: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	    func request<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable, T: Decodable>(path: M1, method: M2, parameters: M3) -> Cuckoo.ProtocolStubFunction<(ApiPath, HTTPMethod, [String:String]), Single<T>> where M1.MatchedType == ApiPath, M2.MatchedType == HTTPMethod, M3.MatchedType == [String:String] {
+	        let matchers: [Cuckoo.ParameterMatcher<(ApiPath, HTTPMethod, [String:String])>] = [wrap(matchable: path) { $0.0 }, wrap(matchable: method) { $0.1 }, wrap(matchable: parameters) { $0.2 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockRemoteServiceProtocol.self, method: "request(path: ApiPath, method: HTTPMethod, parameters: [String:String]) -> Single<T>", parameterMatchers: matchers))
+	    }
+	    
+	}
+
+	 struct __VerificationProxy_RemoteServiceProtocol: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	
+	    
+	    @discardableResult
+	    func request<M1: Cuckoo.Matchable, M2: Cuckoo.Matchable, M3: Cuckoo.Matchable, T: Decodable>(path: M1, method: M2, parameters: M3) -> Cuckoo.__DoNotUse<(ApiPath, HTTPMethod, [String:String]), Single<T>> where M1.MatchedType == ApiPath, M2.MatchedType == HTTPMethod, M3.MatchedType == [String:String] {
+	        let matchers: [Cuckoo.ParameterMatcher<(ApiPath, HTTPMethod, [String:String])>] = [wrap(matchable: path) { $0.0 }, wrap(matchable: method) { $0.1 }, wrap(matchable: parameters) { $0.2 }]
+	        return cuckoo_manager.verify("request(path: ApiPath, method: HTTPMethod, parameters: [String:String]) -> Single<T>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
+	}
+}
+
+ class RemoteServiceProtocolStub: RemoteServiceProtocol {
+    
+
+    
+
+    
+     func request<T: Decodable>(path: ApiPath, method: HTTPMethod, parameters: [String:String]) -> Single<T>  {
+        return DefaultValueRegistry.defaultValue(for: (Single<T>).self)
+    }
+    
+}
+
+
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-02 21:55:47 +0000
 
 //
 //  PostRepository.swift
@@ -134,7 +239,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-02 03:46:25 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-02 21:55:47 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -328,7 +433,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-02 03:46:25 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-02 21:55:47 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -434,7 +539,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/PostListViewModel.swift at 2020-10-02 03:46:25 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/PostListViewModel.swift at 2020-10-02 21:55:47 +0000
 
 //
 //  PostListViewModel.swift

@@ -34,6 +34,9 @@
 		DE4FD5E925264FBC006700BD /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD5E825264FBC006700BD /* GeneratedMocks.swift */; };
 		DE4FD5F625265546006700BD /* GetPostUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD5F525265546006700BD /* GetPostUseCaseTest.swift */; };
 		DE4FD6032526CBE5006700BD /* PostListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6022526CBE5006700BD /* PostListViewModelTest.swift */; };
+		DE4FD6392526DAF4006700BD /* PostRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */; };
+		DE4FD6412526DD7C006700BD /* RemoteServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6402526DD7C006700BD /* RemoteServiceProtocol.swift */; };
+		DE4FD65A2527628E006700BD /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6592527628E006700BD /* TestUtil.swift */; };
 		DE84CAFC252101C00090D0C0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */; };
 		DE84CAFD252101C00090D0C0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */; };
 		DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */; };
@@ -104,6 +107,9 @@
 		DE4FD5E825264FBC006700BD /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		DE4FD5F525265546006700BD /* GetPostUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostUseCaseTest.swift; sourceTree = "<group>"; };
 		DE4FD6022526CBE5006700BD /* PostListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelTest.swift; sourceTree = "<group>"; };
+		DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryTest.swift; sourceTree = "<group>"; };
+		DE4FD6402526DD7C006700BD /* RemoteServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceProtocol.swift; sourceTree = "<group>"; };
+		DE4FD6592527628E006700BD /* TestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
 		DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSplitFactory.swift; sourceTree = "<group>"; };
@@ -208,8 +214,10 @@
 		DE27B10B251FEBD800529D13 /* PostsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				DE4FD65825276281006700BD /* Util */,
 				DE4FD6002526CB95006700BD /* Presentation */,
 				DE4FD5F325265024006700BD /* Domain */,
+				DE4FD6372526DAA3006700BD /* Data */,
 				DE4FD5E825264FBC006700BD /* GeneratedMocks.swift */,
 				DE27B10C251FEBD800529D13 /* PostsAppTests.swift */,
 				DE27B10E251FEBD800529D13 /* Info.plist */,
@@ -246,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				DE405F5825204FF8007C28D2 /* mapper */,
-				DE405F0725201AAF007C28D2 /* remote */,
+				DE405F0725201AAF007C28D2 /* Remote */,
 				DE405EDE25201012007C28D2 /* PostRepository.swift */,
 			);
 			path = Repository;
@@ -260,13 +268,13 @@
 			path = di;
 			sourceTree = "<group>";
 		};
-		DE405F0725201AAF007C28D2 /* remote */ = {
+		DE405F0725201AAF007C28D2 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
 				DE405F5125204FC5007C28D2 /* service */,
 				DE405F3225204D4F007C28D2 /* model */,
 			);
-			path = remote;
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		DE405F3225204D4F007C28D2 /* model */ = {
@@ -286,6 +294,7 @@
 				DE405F152520200E007C28D2 /* HTTPMethod.swift */,
 				DE405F1025201F5B007C28D2 /* RemoteService.swift */,
 				DE405F1A25202247007C28D2 /* RemoteServiceError.swift */,
+				DE4FD6402526DD7C006700BD /* RemoteServiceProtocol.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -328,6 +337,22 @@
 				DE4FD6022526CBE5006700BD /* PostListViewModelTest.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE4FD6372526DAA3006700BD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		DE4FD65825276281006700BD /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				DE4FD6592527628E006700BD /* TestUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		DE84CAF92521015F0090D0C0 /* view */ = {
@@ -722,7 +747,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/PostListViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/PostCommentsViewModel.swift\"\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/PostListViewModel.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/PostCommentsViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \n#\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -733,6 +758,7 @@
 			files = (
 				DE405F5A2520500D007C28D2 /* DataMapper.swift in Sources */,
 				DE405EE82520108C007C28D2 /* DataDependencyAssembly.swift in Sources */,
+				DE4FD6412526DD7C006700BD /* RemoteServiceProtocol.swift in Sources */,
 				DE84CB3B252170220090D0C0 /* PostCommentsViewController.swift in Sources */,
 				DE405EC4252007EE007C28D2 /* FeaturesDependencyAssembly.swift in Sources */,
 				DE84CB56252175580090D0C0 /* Owner.swift in Sources */,
@@ -767,8 +793,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4FD5E925264FBC006700BD /* GeneratedMocks.swift in Sources */,
+				DE4FD65A2527628E006700BD /* TestUtil.swift in Sources */,
 				DE4FD6032526CBE5006700BD /* PostListViewModelTest.swift in Sources */,
 				DE4FD5F625265546006700BD /* GetPostUseCaseTest.swift in Sources */,
+				DE4FD6392526DAF4006700BD /* PostRepositoryTest.swift in Sources */,
 				DE27B10D251FEBD800529D13 /* PostsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

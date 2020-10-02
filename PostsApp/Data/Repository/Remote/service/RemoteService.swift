@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-struct RemoteService {
+struct RemoteService: RemoteServiceProtocol {
     
     static let defaultTimeout = 20.0
     
@@ -19,7 +19,7 @@ struct RemoteService {
     }
     
     func request<T: Decodable> (path: ApiPath,
-                                method: HTTPMethod = .get,
+                                method: HTTPMethod,
                                 parameters: [String: String] = [:]) -> Single<T> {
         
         return Single<T>.create { observer in

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ApiPath {
+enum ApiPath: Equatable {
     case post
     case postComment(postId: String)
 }
