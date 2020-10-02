@@ -12,8 +12,8 @@ struct GetPostRequestValues: RequestValues {}
 
 class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     
-    private var currentPage = -1
-    private var isExecuting = false
+    var currentPage = -1
+    var isExecuting = false
     let repository: PostRepositoryProtocol
     
     init (repository: PostRepositoryProtocol){

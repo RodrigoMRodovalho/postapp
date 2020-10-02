@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post {
+struct Post: Equatable {
     let id: String
     let authorFirstName: String
     let authorLastName: String

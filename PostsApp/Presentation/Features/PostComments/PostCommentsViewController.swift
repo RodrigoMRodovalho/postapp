@@ -36,6 +36,10 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
+        let indicator = UIActivityIndicatorView()
+        tableView.backgroundView = indicator
+        indicator.startAnimating()
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -56,6 +60,7 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
             //TODO handle error
             break
         }
+        tableView.backgroundView = nil
         tableView.reloadData()
         tableView.tableFooterView = nil
     }

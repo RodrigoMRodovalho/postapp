@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Comment {
+struct Comment: Equatable {
     let id: String
     let authorFirstName: String
     let authorLastName: String
