@@ -96,7 +96,7 @@ class GetPostsUseCaseTest: XCTestCase {
         _ = sut?.run().subscribe(onSuccess: { (posts) in
             XCTAssertEqual(1, posts.count)
             expectation.fulfill()
-        }, onError: nil, onCompleted: nil)
+        })
         
         let postDataSecondRun = try sut?.run().toBlocking().last()
         XCTAssertTrue(sut.isExecuting)

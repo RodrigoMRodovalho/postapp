@@ -1,32 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Domain/Model/Comment.swift at 2020-10-02 02:38:07 +0000
-
-//
-//  Comment.swift
-//  PostsApp
-//
-//  Created by Rodrigo Rodovalho on 27/09/20.
-//
-
-import Cuckoo
-@testable import PostsApp
-
-import Foundation
-
-// MARK: - Mocks generated from file: PostsApp/Domain/Model/Post.swift at 2020-10-02 02:38:07 +0000
-
-//
-//  Post.swift
-//  PostsApp
-//
-//  Created by Rodrigo Rodovalho on 27/09/20.
-//
-
-import Cuckoo
-@testable import PostsApp
-
-import Foundation
-
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-02 02:38:07 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-02 03:46:25 +0000
 
 //
 //  PostRepository.swift
@@ -162,7 +134,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-02 02:38:07 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-02 03:46:25 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -356,7 +328,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-02 02:38:07 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-02 03:46:25 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -462,7 +434,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/PostListViewModel.swift at 2020-10-02 02:38:07 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/PostListViewModel.swift at 2020-10-02 03:46:25 +0000
 
 //
 //  PostListViewModel.swift
