@@ -50,6 +50,7 @@
 		DE84CB56252175580090D0C0 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB55252175580090D0C0 /* Owner.swift */; };
 		DE84CB7C252189E30090D0C0 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB7A252189E20090D0C0 /* CommentTableViewCell.swift */; };
 		DE84CB7D252189E30090D0C0 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE84CB7B252189E20090D0C0 /* CommentTableViewCell.xib */; };
+		DE8E11B02528F28000AF0090 /* DataMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E11AF2528F28000AF0090 /* DataMapperTest.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		DE84CB55252175580090D0C0 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		DE84CB7A252189E20090D0C0 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		DE84CB7B252189E20090D0C0 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		DE8E11AF2528F28000AF0090 /* DataMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapperTest.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 		DE4FD6372526DAA3006700BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DE8E11AE2528F25B00AF0090 /* Mapper */,
 				DE4FD6EC2527E77D006700BD /* Remote */,
 				DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */,
 			);
@@ -395,6 +398,14 @@
 				DE84CB7B252189E20090D0C0 /* CommentTableViewCell.xib */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		DE8E11AE2528F25B00AF0090 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				DE8E11AF2528F28000AF0090 /* DataMapperTest.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		DEE3E9F0251FFDB4003EF386 /* Application */ = {
@@ -807,6 +818,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4FD5E925264FBC006700BD /* GeneratedMocks.swift in Sources */,
+				DE8E11B02528F28000AF0090 /* DataMapperTest.swift in Sources */,
 				DE4FD65A2527628E006700BD /* TestUtil.swift in Sources */,
 				DE4FD6EE2527E78F006700BD /* RemoteServiceTest.swift in Sources */,
 				DE4FD6032526CBE5006700BD /* PostListViewModelTest.swift in Sources */,
