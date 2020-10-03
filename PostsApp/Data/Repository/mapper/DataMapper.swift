@@ -13,18 +13,18 @@ struct DataMapper {
     
         var postArray : [Post] = []
         
-        postResponseModel.data?.forEach({ (data) in
-            let post = Post(id: data.id ?? "" ,
-                            authorFirstName: data.owner?.firstName ?? "",
-                            authorLastName: data.owner?.lastName ?? "",
-                            authorEmail: data.owner?.email ?? "",
-                            authorProfilePictureUrl: (data.owner?.picture!)!,
-                            title: data.text!,
+        postResponseModel.data.forEach({ (data) in
+            let post = Post(id: data.id,
+                            authorFirstName: data.owner.firstName,
+                            authorLastName: data.owner.lastName,
+                            authorEmail: data.owner.email,
+                            authorProfilePictureUrl: (data.owner.picture),
+                            title: data.text,
                             originalUrl: data.link ?? "",
-                            likes: data.likes!,
-                            createdDatetime: data.publishDate!,
+                            likes: data.likes,
+                            createdDatetime: data.publishDate,
                             tagList: data.tags!,
-                            imageUrl: data.image!)
+                            imageUrl: data.image)
             postArray.append(post)
         })
             
@@ -35,13 +35,13 @@ struct DataMapper {
         
         var commentArray : [Comment] = []
         
-        commentResponseModel.data?.forEach({ (data) in
-            let comment = Comment(id: data.id ?? "",
-                                  authorFirstName: data.owner?.firstName ?? "",
-                                  authorLastName: data.owner?.lastName ?? "",
-                                  authorPictureUrl: data.owner?.picture ?? "",
-                                  message: data.message ?? "",
-                                  createDatetime: data.publishDate ?? "")
+        commentResponseModel.data.forEach({ (data) in
+            let comment = Comment(id: data.id,
+                                  authorFirstName: data.owner.firstName,
+                                  authorLastName: data.owner.lastName,
+                                  authorPictureUrl: data.owner.picture,
+                                  message: data.message,
+                                  createDatetime: data.publishDate)
             commentArray.append(comment)
         })
         

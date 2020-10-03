@@ -37,6 +37,8 @@
 		DE4FD6392526DAF4006700BD /* PostRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */; };
 		DE4FD6412526DD7C006700BD /* RemoteServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6402526DD7C006700BD /* RemoteServiceProtocol.swift */; };
 		DE4FD65A2527628E006700BD /* TestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6592527628E006700BD /* TestUtil.swift */; };
+		DE4FD6EE2527E78F006700BD /* RemoteServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6ED2527E78F006700BD /* RemoteServiceTest.swift */; };
+		DE4FD6F625282946006700BD /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6F525282946006700BD /* MockURLProtocol.swift */; };
 		DE84CAFC252101C00090D0C0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */; };
 		DE84CAFD252101C00090D0C0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */; };
 		DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */; };
@@ -110,6 +112,8 @@
 		DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepositoryTest.swift; sourceTree = "<group>"; };
 		DE4FD6402526DD7C006700BD /* RemoteServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceProtocol.swift; sourceTree = "<group>"; };
 		DE4FD6592527628E006700BD /* TestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtil.swift; sourceTree = "<group>"; };
+		DE4FD6ED2527E78F006700BD /* RemoteServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteServiceTest.swift; sourceTree = "<group>"; };
+		DE4FD6F525282946006700BD /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSplitFactory.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 		DE4FD6372526DAA3006700BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DE4FD6EC2527E77D006700BD /* Remote */,
 				DE4FD6382526DAF4006700BD /* PostRepositoryTest.swift */,
 			);
 			path = Data;
@@ -351,8 +356,17 @@
 			isa = PBXGroup;
 			children = (
 				DE4FD6592527628E006700BD /* TestUtil.swift */,
+				DE4FD6F525282946006700BD /* MockURLProtocol.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		DE4FD6EC2527E77D006700BD /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				DE4FD6ED2527E78F006700BD /* RemoteServiceTest.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		DE84CAF92521015F0090D0C0 /* view */ = {
@@ -794,10 +808,12 @@
 			files = (
 				DE4FD5E925264FBC006700BD /* GeneratedMocks.swift in Sources */,
 				DE4FD65A2527628E006700BD /* TestUtil.swift in Sources */,
+				DE4FD6EE2527E78F006700BD /* RemoteServiceTest.swift in Sources */,
 				DE4FD6032526CBE5006700BD /* PostListViewModelTest.swift in Sources */,
 				DE4FD5F625265546006700BD /* GetPostUseCaseTest.swift in Sources */,
 				DE4FD6392526DAF4006700BD /* PostRepositoryTest.swift in Sources */,
 				DE27B10D251FEBD800529D13 /* PostsAppTests.swift in Sources */,
+				DE4FD6F625282946006700BD /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

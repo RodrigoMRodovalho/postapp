@@ -11,11 +11,11 @@ import RxSwift
 struct RemoteService: RemoteServiceProtocol {
     
     static let defaultTimeout = 20.0
+    private let timeout: TimeInterval = defaultTimeout
+    let urlSessionConfiguration: URLSessionConfiguration
     
-    private let timeout: TimeInterval
-    
-    init (timeout: TimeInterval = defaultTimeout) {
-        self.timeout = timeout
+    init (urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default) {
+        self.urlSessionConfiguration = urlSessionConfiguration
     }
     
     func request<T: Decodable> (path: ApiPath,
@@ -45,13 +45,13 @@ struct RemoteService: RemoteServiceProtocol {
             request.httpMethod = method.rawValue
             request.addValue(API.appId, forHTTPHeaderField: API.headerAppId)
             
-            let configuration = URLSessionConfiguration.default
+            let configuration = self.urlSessionConfiguration
             configuration.timeoutIntervalForRequest = timeout
             
             let session = URLSession(configuration: configuration)
-            session.dataTask(with: request) { (data, response, error) in
+            session.dataTask(with: request) { (data, response, errorr) in
                 
-                if let error = error as NSError? {
+                if let error = errorr as NSError? {
                     switch error.code {
                     case NSURLErrorTimedOut:
                         observer(.error(RemoteServiceError.timedOut))

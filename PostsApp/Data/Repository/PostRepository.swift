@@ -13,9 +13,6 @@ struct PostRepository: PostRepositoryProtocol{
     let remoteService: RemoteServiceProtocol
     let dataMapper: DataMapper
     
-    private func makeParameters(limit: Int, page: Int) -> [String:String] {
-        return ["limit": "\(limit)" , "page" : "\(page)"]
-    }
     
     func fetchPostData(limit: Int, page: Int) -> Single<[Post]> {
         return remoteService.request(path: ApiPath.post,
@@ -34,4 +31,8 @@ struct PostRepository: PostRepositoryProtocol{
                 dataMapper.transform(commentResponseModel: $0)
             }
     }
+    
+    private func makeParameters(limit: Int, page: Int) -> [String:String] {
+        return ["limit": "\(limit)" , "page" : "\(page)"]
+    }   
 }

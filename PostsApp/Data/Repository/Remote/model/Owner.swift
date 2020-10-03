@@ -8,7 +8,7 @@
 import Foundation
 
 struct Owner: Decodable {
-    var id, email, title: String?
-    var picture: String?
-    var firstName, lastName: String?
+    var id, email, title: String
+    var picture: String
+    var firstName, lastName: String
 }
