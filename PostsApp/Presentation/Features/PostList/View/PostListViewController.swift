@@ -10,13 +10,13 @@ import Swinject
 import RxSwift
 import Kingfisher
 
-class PostListViewController: BaseViewController<PostListViewModel>{
+class PostListViewController: BaseViewController<PostListViewModelProtocol>{
     
-    private var data = [Post]()
+    var data = [Post]()
     
     var safeArea: UILayoutGuide!
     
-    private let tableView: UITableView = {
+    let tableVieww: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         let nib = UINib(nibName: "PostTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "PostCell")
@@ -27,17 +27,17 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         super.loadView()
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
-        view.addSubview(tableView)
+        view.addSubview(tableVieww)
         let indicator = UIActivityIndicatorView()
-        tableView.backgroundView = indicator
+        tableVieww.backgroundView = indicator
         indicator.startAnimating()
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableVieww.translatesAutoresizingMaskIntoConstraints = false
+        tableVieww.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        tableVieww.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableVieww.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableVieww.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableVieww.separatorStyle = UITableViewCell.SeparatorStyle.none
         //tableView.backgroundColor = UIColor.lightGray
     }
     
@@ -45,8 +45,8 @@ class PostListViewController: BaseViewController<PostListViewModel>{
         super.viewDidLoad()
         title = "Posts"
         // Do any additional setup after loading the view.
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableVieww.dataSource = self
+        tableVieww.delegate = self
         
         viewModel?.observePostData.subscribe(onNext: { (result) in
             self.updateTableView(result: result)
@@ -64,9 +64,9 @@ class PostListViewController: BaseViewController<PostListViewModel>{
             break
         }
     
-        tableView.backgroundView = nil
-        tableView.reloadData()
-        tableView.tableFooterView = nil
+        tableVieww.backgroundView = nil
+        tableVieww.reloadData()
+        tableVieww.tableFooterView = nil
     }
     
     private func createSpinnerFooter() -> UIView {
@@ -127,8 +127,8 @@ extension PostListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let position = scrollView.contentOffset.y
-        if position > (tableView.contentSize.height - scrollView.frame.size.height - 100) {
-            tableView.tableFooterView = createSpinnerFooter()
+        if position > (tableVieww.contentSize.height - scrollView.frame.size.height - 100) {
+            tableVieww.tableFooterView = createSpinnerFooter()
             viewModel?.fetchPosts()
         }
         

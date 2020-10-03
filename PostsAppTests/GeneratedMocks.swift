@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-03 18:17:14 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-03 20:40:07 +0000
 
 //
 //  RemoteServiceProtocol.swift
@@ -103,7 +103,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-03 18:17:14 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-03 20:40:07 +0000
 
 //
 //  PostRepository.swift
@@ -239,7 +239,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-03 18:17:14 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-03 20:40:07 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -433,7 +433,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-03 18:17:14 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/PostCommentsViewModel.swift at 2020-10-03 20:40:07 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -539,62 +539,75 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/PostListViewModel.swift at 2020-10-03 18:17:14 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-03 20:40:07 +0000
 
 //
-//  PostListViewModel.swift
+//  PostListViewModelProtocol.swift
 //  PostsApp
 //
-//  Created by Rodrigo Rodovalho on 26/09/20.
+//  Created by Rodrigo Rodovalho on 03/10/20.
 //
 
 import Cuckoo
 @testable import PostsApp
 
-import Foundation
 import RxSwift
 
 
- class MockPostListViewModel: PostListViewModel, Cuckoo.ClassMock {
+ class MockPostListViewModelProtocol: PostListViewModelProtocol, Cuckoo.ProtocolMock {
     
-     typealias MocksType = PostListViewModel
+     typealias MocksType = PostListViewModelProtocol
     
-     typealias Stubbing = __StubbingProxy_PostListViewModel
-     typealias Verification = __VerificationProxy_PostListViewModel
+     typealias Stubbing = __StubbingProxy_PostListViewModelProtocol
+     typealias Verification = __VerificationProxy_PostListViewModelProtocol
 
-     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
 
     
-    private var __defaultImplStub: PostListViewModel?
+    private var __defaultImplStub: PostListViewModelProtocol?
 
-     func enableDefaultImplementation(_ stub: PostListViewModel) {
+     func enableDefaultImplementation(_ stub: PostListViewModelProtocol) {
         __defaultImplStub = stub
         cuckoo_manager.enableDefaultStubImplementation()
     }
     
 
     
-
+    
+    
+     var observePostData: PublishSubject<Result<[Post], Error>> {
+        get {
+            return cuckoo_manager.getter("observePostData",
+                superclassCall:
+                    
+                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                    ,
+                defaultCall: __defaultImplStub!.observePostData)
+        }
+        
+    }
     
 
     
+
     
     
-     override func fetchPosts()  {
+    
+     func fetchPosts()  {
         
     return cuckoo_manager.call("fetchPosts()",
             parameters: (),
             escapingParameters: (),
             superclassCall:
                 
-                super.fetchPosts()
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 ,
             defaultCall: __defaultImplStub!.fetchPosts())
         
     }
     
 
-	 struct __StubbingProxy_PostListViewModel: Cuckoo.StubbingProxy {
+	 struct __StubbingProxy_PostListViewModelProtocol: Cuckoo.StubbingProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	
 	     init(manager: Cuckoo.MockManager) {
@@ -602,14 +615,19 @@ import RxSwift
 	    }
 	    
 	    
-	    func fetchPosts() -> Cuckoo.ClassStubNoReturnFunction<()> {
+	    var observePostData: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockPostListViewModelProtocol, PublishSubject<Result<[Post], Error>>> {
+	        return .init(manager: cuckoo_manager, name: "observePostData")
+	    }
+	    
+	    
+	    func fetchPosts() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
 	        let matchers: [Cuckoo.ParameterMatcher<Void>] = []
-	        return .init(stub: cuckoo_manager.createStub(for: MockPostListViewModel.self, method: "fetchPosts()", parameterMatchers: matchers))
+	        return .init(stub: cuckoo_manager.createStub(for: MockPostListViewModelProtocol.self, method: "fetchPosts()", parameterMatchers: matchers))
 	    }
 	    
 	}
 
-	 struct __VerificationProxy_PostListViewModel: Cuckoo.VerificationProxy {
+	 struct __VerificationProxy_PostListViewModelProtocol: Cuckoo.VerificationProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	    private let callMatcher: Cuckoo.CallMatcher
 	    private let sourceLocation: Cuckoo.SourceLocation
@@ -620,6 +638,11 @@ import RxSwift
 	        self.sourceLocation = sourceLocation
 	    }
 	
+	    
+	    
+	    var observePostData: Cuckoo.VerifyReadOnlyProperty<PublishSubject<Result<[Post], Error>>> {
+	        return .init(manager: cuckoo_manager, name: "observePostData", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
 	    
 	
 	    
@@ -632,13 +655,21 @@ import RxSwift
 	}
 }
 
- class PostListViewModelStub: PostListViewModel {
+ class PostListViewModelProtocolStub: PostListViewModelProtocol {
+    
+    
+     var observePostData: PublishSubject<Result<[Post], Error>> {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (PublishSubject<Result<[Post], Error>>).self)
+        }
+        
+    }
     
 
     
 
     
-     override func fetchPosts()   {
+     func fetchPosts()   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     

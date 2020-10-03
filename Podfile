@@ -16,6 +16,7 @@ target 'PostsApp' do
     # Pods for testing
     pod 'RxBlocking', '~> 5'
     pod 'RxTest', '~> 5'
+    pod 'Swinject'
     pod "Cuckoo"
   end
 

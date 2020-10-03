@@ -8,17 +8,18 @@
 import Foundation
 import RxSwift
 
-class PostListViewModel {
+
+class PostListViewModel: PostListViewModelProtocol {
     
-    let disposeBag = DisposeBag()
-    let useCase: GetPostUseCase
+    private let disposeBag = DisposeBag()
+    private let useCase: GetPostUseCase
     let observePostData: PublishSubject<Result<[Post], Error>> = PublishSubject()
     
     init(getPostUseCase: GetPostUseCase) {
         self.useCase = getPostUseCase
     }
     
-    func fetchPosts (){
+    func fetchPosts(){
         useCase.run().subscribe { posts in
             self.observePostData.onNext(Result.success(posts))
         } onError: { error in

@@ -12,7 +12,7 @@ class FeaturesDependencyAssembly : Assembly {
     
     func assemble(container: Container) {
         
-        container.register(PostListViewModel.self) { r in
+        container.register(PostListViewModelProtocol.self) { r in
             let useCase = r.resolve(GetPostUseCase.self)!
             return PostListViewModel(getPostUseCase: useCase)
         }
