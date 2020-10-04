@@ -18,11 +18,9 @@ class UseCase<RV: RequestValues, T> {
     func run() -> Maybe<T> {
         
         if (isExecuting) {
-            print("skipping usecase execution, because its already executing something")
             return Maybe.empty()
         }
         
-        print("start usecase execution")
         isExecuting = true
         
         return executeUseCase(requestValues: requestValues)

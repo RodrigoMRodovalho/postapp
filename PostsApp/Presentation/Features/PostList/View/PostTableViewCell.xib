@@ -73,16 +73,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EK-Nu-GQw" userLabel="MiddleView">
                                 <rect key="frame" x="0.0" y="69" width="400" height="290"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="5CK-Sj-s9w" userLabel="PostPictureImageView">
-                                        <rect key="frame" x="20" y="20" width="360" height="250"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5CK-Sj-s9w" userLabel="PostPictureImageView">
+                                        <rect key="frame" x="16" y="20" width="368" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="d6B-AD-REc"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="centerY" secondItem="7EK-Nu-GQw" secondAttribute="centerY" id="Rg4-WY-zK8"/>
-                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="top" secondItem="7EK-Nu-GQw" secondAttribute="top" constant="20" id="bSn-Z3-nkZ"/>
-                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="centerX" secondItem="7EK-Nu-GQw" secondAttribute="centerX" id="rSY-kL-6gP"/>
-                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="leading" secondItem="7EK-Nu-GQw" secondAttribute="leading" constant="20" id="rfY-79-EwH"/>
+                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="top" secondItem="7EK-Nu-GQw" secondAttribute="top" constant="20" id="JTq-bL-Cr3"/>
+                                    <constraint firstAttribute="trailing" secondItem="5CK-Sj-s9w" secondAttribute="trailing" constant="16" id="Mkf-Oy-NYN"/>
+                                    <constraint firstItem="5CK-Sj-s9w" firstAttribute="leading" secondItem="7EK-Nu-GQw" secondAttribute="leading" constant="16" id="fUm-XR-rKY"/>
+                                    <constraint firstAttribute="bottom" secondItem="5CK-Sj-s9w" secondAttribute="bottom" constant="20" id="jkf-jM-TUN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFo-F0-HC4" userLabel="BottomView">
@@ -180,6 +182,11 @@
             <point key="canvasLocation" x="-323.19999999999999" y="191.00985221674878"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="FTD-75-QPf">
+            <size key="intrinsicContentSize" width="360" height="16"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
