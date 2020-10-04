@@ -16,9 +16,10 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Posts"
+        title = Strings.posts
     
-        configureView(withXibName: "PostTableViewCell", withReusableCellIdentifier: "PostCell")
+        configureView(withXibName: Strings.postTableViewCellName,
+                      withReusableCellIdentifier: Strings.postTableViewCellIdentifier)
         
         scrollableTableView.dataSource = self
         scrollableTableView.delegate = self
@@ -42,8 +43,8 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
             self.data.append(contentsOf: newData)
             if newData.isEmpty {
                 scrollableTableView.tableFooterView = createNoDataFooter(self.data.isEmpty ?
-                                                                            "No post yet" :
-                                                                            "You are read all posts")
+                                                                            Strings.noPostAvailable :
+                                                                            Strings.allPostRead)
             } else {
                 data.append(contentsOf: newData)
                 scrollableTableView.reloadData()
@@ -67,7 +68,8 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Strings.postTableViewCellIdentifier,
+                                                 for: indexPath) as! PostTableViewCell
         let post = data[indexPath.row]
         cell.authorNameLabel.text = "\(post.authorFirstName) \(post.authorLastName)"
         cell.authorEmailLabel.text = post.authorEmail
@@ -80,7 +82,7 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.postUrlLabel.text = post.originalUrl
         }
-        cell.postLikesLabel.text = "\(post.likes) Likes"
+        cell.postLikesLabel.text = "\(post.likes) \(Strings.likes)"
         cell.postDatetimeLabel.text = post.createdDatetime
         cell.postPictureImageView.kf.indicatorType = .activity
         cell.postPictureImageView.kf.setImage(with: URL(string: post.imageUrl))

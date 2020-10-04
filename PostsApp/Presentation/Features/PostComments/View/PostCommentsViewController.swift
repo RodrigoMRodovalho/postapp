@@ -15,9 +15,10 @@ class PostCommentsViewController: BaseViewController<PostCommentsViewModelProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Comments"
+        title = Strings.comments
     
-        configureView(withXibName: "CommentTableViewCell", withReusableCellIdentifier: "CommentCell")
+        configureView(withXibName: Strings.commentTableViewCellName,
+                      withReusableCellIdentifier: Strings.commentTableViewCellIdentifier)
         
         scrollableTableView.dataSource = self
         scrollableTableView.delegate = self
@@ -43,8 +44,8 @@ class PostCommentsViewController: BaseViewController<PostCommentsViewModelProtoc
         case .success(let newData):
             if newData.isEmpty {
                 scrollableTableView.tableFooterView = createNoDataFooter(self.data.isEmpty ?
-                                                                            "No comments yet" :
-                                                                            "You are read all comments")
+                                                                            Strings.noCommentsAvailable :
+                                                                            Strings.allCommentsRead)
             } else {
                 self.data.append(contentsOf: newData)
                 scrollableTableView.reloadData()
@@ -69,7 +70,8 @@ extension PostCommentsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! CommentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Strings.commentTableViewCellIdentifier,
+                                                 for: indexPath) as! CommentTableViewCell
         let comment = data[indexPath.row]
         cell.authorNameLabel.text = "\(comment.authorFirstName) \(comment.authorLastName)"
         cell.authorPictureImageView.layer.cornerRadius = CGFloat(15)

@@ -1,0 +1,16 @@
+input_dir: PostsApp
+output_dir: PostsApp/Application/Resources/Generated/
+strings:
+  inputs: Application/Resources/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: Strings.generated.swift
+    params:
+      enumName: "Strings"
+# xcassets:
+#   inputs: Resources/Images.xcassets
+#   outputs:
+#     templateName: swift5
+#     output: Assets.generated.swift
+#     params:
+#       enumName: "Assets"

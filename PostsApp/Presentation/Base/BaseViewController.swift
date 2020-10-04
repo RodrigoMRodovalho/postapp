@@ -52,32 +52,6 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         scrollableTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
-//    func updateTableView<T>(result: Result<T, Error>, resultSize: Int, dataSize: Int) -> T{
-//        
-//        scrollableTableView.tableFooterView = nil
-//        scrollableTableView.backgroundView = nil
-//        switch result {
-//        case .success(let newData):
-//            if resultSize > 0 {
-//                scrollableTableView.tableFooterView = createNoDataFooter(dataSize == 0 ?
-//                                                                            "No post yet" :
-//                                                                            "You are read all posts")
-//                
-//            } else {
-//                data.append(contentsOf: newData)
-//                scrollableTableView.reloadData()
-//            }
-//        case .failure(let e):
-//            //TODO handle error
-//            if (data.isEmpty){
-//                scrollableTableView.backgroundView = createErrorView(withError: e)
-//            } else {
-//                scrollableTableView.tableFooterView = createErrorView(withError: e)
-//            }
-//            break
-//        }
-//    }
-    
     func createSpinnerFooter() -> UIView {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         let spinner = UIActivityIndicatorView()
@@ -111,12 +85,12 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
 
         let errorMessage = UILabel()
         errorMessage.numberOfLines = 0
-        errorMessage.text = "Something whent wrong. \(error.localizedDescription)"
+        errorMessage.text = "\(Strings.errorTitle) \(error.localizedDescription)"
         stackView.addArrangedSubview(errorMessage)
 
         let retryInstructions = UILabel()
         retryInstructions.numberOfLines = 1
-        retryInstructions.text = "Swipe down to retry"
+        retryInstructions.text = Strings.errorRetryText
         stackView.addArrangedSubview(retryInstructions)
         
         return footerView
