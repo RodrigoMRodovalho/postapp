@@ -17,18 +17,21 @@ class PostCommentsViewControllerTest: XCTestCase {
     var viewModel: MockPostCommentsViewModelProtocol!
     var observableData: PublishSubject<Result<[Comment], Error>>!
     let testUtil = TestUtil()
+    var post: Post!
 
     override func setUpWithError() throws {
         viewModel = MockPostCommentsViewModelProtocol()
         observableData = PublishSubject<Result<[Comment], Error>>()
-        (Assembler.sharedAssembler.resolver as! Container).register(MockPostCommentsViewModelProtocol.self) { _ in
+        (Assembler.sharedAssembler.resolver as! Container).register(PostCommentsViewModelProtocol.self) { _ in
             return self.viewModel
         }
         stub (viewModel) { mock in
             when(mock.observePostCommentsData.get).thenReturn(observableData)
-            //when(mock.fetchComments(withPost: any())).thenDoNothing()
+            when(mock.fetchComments(withPost: any())).thenDoNothing()
         }
+        post = testUtil.createPost(1)
         sut = PostCommentsViewController()
+        sut.post = post
     }
 
     override func tearDownWithError() throws {
@@ -55,15 +58,14 @@ class PostCommentsViewControllerTest: XCTestCase {
     
     func testPostCommentsViewController_WhenFetchingValidData_ShouldSetTableViewCellWithCorrectValues() throws {
     
-        let post = testUtil.createPost(1)
         let commentsData = [testUtil.createComment(1), testUtil.createComment(2), testUtil.createComment(3)]
         
         stub (viewModel) { mock in
-            when(mock.fetchComments(withPost: post)).then { _ in
+            when(mock.fetchComments(withPost: any())).then { _ in
                 self.observableData.onNext(Result.success(commentsData))
             }
         }
-
+        
         sut.loadViewIfNeeded()
         
         XCTAssertNil(sut.scrollableTableView.backgroundView)
@@ -88,5 +90,5 @@ class PostCommentsViewControllerTest: XCTestCase {
 extension Post: Matchable {
     public var matcher: ParameterMatcher<Post> {
         return ParameterMatcher { $0 == self }
-    }
+    } 
 }
