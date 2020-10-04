@@ -41,7 +41,6 @@
 		DE4FD6F625282946006700BD /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FD6F525282946006700BD /* MockURLProtocol.swift */; };
 		DE84CAFC252101C00090D0C0 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */; };
 		DE84CAFD252101C00090D0C0 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */; };
-		DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */; };
 		DE84CB3625216FE80090D0C0 /* PostCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB3525216FE80090D0C0 /* PostCommentsViewModel.swift */; };
 		DE84CB3B252170220090D0C0 /* PostCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB3A252170220090D0C0 /* PostCommentsViewController.swift */; };
 		DE84CB40252172680090D0C0 /* GetPostCommentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE84CB3F252172680090D0C0 /* GetPostCommentsUseCase.swift */; };
@@ -53,6 +52,7 @@
 		DE8E11B02528F28000AF0090 /* DataMapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E11AF2528F28000AF0090 /* DataMapperTest.swift */; };
 		DE8E11B92528F80B00AF0090 /* PostListViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E11B82528F80B00AF0090 /* PostListViewControllerTest.swift */; };
 		DE8E11DF2528FFCA00AF0090 /* PostListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E11DE2528FFCA00AF0090 /* PostListViewModelProtocol.swift */; };
+		DED73FC62529500C002C3336 /* PostAppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED73FC52529500C002C3336 /* PostAppAssembly.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -119,7 +119,6 @@
 		DE4FD6F525282946006700BD /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		DE84CAFA252101C00090D0C0 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		DE84CAFB252101C00090D0C0 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
-		DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSplitFactory.swift; sourceTree = "<group>"; };
 		DE84CB3525216FE80090D0C0 /* PostCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewModel.swift; sourceTree = "<group>"; };
 		DE84CB3A252170220090D0C0 /* PostCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentsViewController.swift; sourceTree = "<group>"; };
 		DE84CB3F252172680090D0C0 /* GetPostCommentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostCommentsUseCase.swift; sourceTree = "<group>"; };
@@ -131,6 +130,7 @@
 		DE8E11AF2528F28000AF0090 /* DataMapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapperTest.swift; sourceTree = "<group>"; };
 		DE8E11B82528F80B00AF0090 /* PostListViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewControllerTest.swift; sourceTree = "<group>"; };
 		DE8E11DE2528FFCA00AF0090 /* PostListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelProtocol.swift; sourceTree = "<group>"; };
+		DED73FC52529500C002C3336 /* PostAppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppAssembly.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -439,14 +439,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DED73FC425294FF5002C3336 /* di */ = {
+			isa = PBXGroup;
+			children = (
+				DED73FC52529500C002C3336 /* PostAppAssembly.swift */,
+			);
+			path = di;
+			sourceTree = "<group>";
+		};
 		DEE3E9F0251FFDB4003EF386 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DED73FC425294FF5002C3336 /* di */,
 				DE27B0F5251FEBD400529D13 /* AppDelegate.swift */,
 				DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */,
 				DE27B0FE251FEBD700529D13 /* Assets.xcassets */,
 				DE27B103251FEBD700529D13 /* Info.plist */,
-				DE84CB0F252142180090D0C0 /* PostSplitFactory.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -817,6 +825,7 @@
 				DE84CB3B252170220090D0C0 /* PostCommentsViewController.swift in Sources */,
 				DE405EC4252007EE007C28D2 /* FeaturesDependencyAssembly.swift in Sources */,
 				DE84CB56252175580090D0C0 /* Owner.swift in Sources */,
+				DED73FC62529500C002C3336 /* PostAppAssembly.swift in Sources */,
 				DE84CB40252172680090D0C0 /* GetPostCommentsUseCase.swift in Sources */,
 				DE405EDF25201012007C28D2 /* PostRepository.swift in Sources */,
 				DE405ED925200EF2007C28D2 /* PostRepositoryProtocol.swift in Sources */,
@@ -834,7 +843,6 @@
 				DE405F162520200E007C28D2 /* HTTPMethod.swift in Sources */,
 				DE405F0925201AD4007C28D2 /* API.swift in Sources */,
 				DE405F1B25202247007C28D2 /* RemoteServiceError.swift in Sources */,
-				DE84CB10252142180090D0C0 /* PostSplitFactory.swift in Sources */,
 				DE405EC925200B28007C28D2 /* UseCase.swift in Sources */,
 				DE27B0F6251FEBD400529D13 /* AppDelegate.swift in Sources */,
 				DE405ED425200C41007C28D2 /* GetPostsUseCase.swift in Sources */,

@@ -6,12 +6,11 @@
 //
 
 import UIKit
+import Swinject
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
-    let splitFactory = PostSplitFactory()
 
     func scene(
         _ scene: UIScene,
@@ -21,10 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         self.window = window
-        window.rootViewController = splitFactory.make()
+        let splitViewController = Assembler.sharedAssembler.resolver.resolve(UISplitViewController.self)
+        splitViewController?.delegate = self
+        window.rootViewController = splitViewController
         window.makeKeyAndVisible()
     }
-
-
+    
+    func splitViewController(_ splitViewController: UISplitViewController,
+                             collapseSecondary secondaryViewController: UIViewController,
+                             onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
 }
 
