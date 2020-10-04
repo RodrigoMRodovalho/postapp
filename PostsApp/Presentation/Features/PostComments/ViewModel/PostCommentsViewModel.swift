@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class PostCommentslViewModel {
+class PostCommentsViewModel {
     
     let disposeBag = DisposeBag()
     let useCase: GetPostCommentsUseCase

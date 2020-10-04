@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 04:00:01 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 04:20:55 +0000
 
 //
 //  RemoteServiceProtocol.swift
@@ -103,7 +103,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 04:00:01 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 04:20:55 +0000
 
 //
 //  PostRepository.swift
@@ -239,7 +239,113 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 04:00:01 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostCommentsUseCase.swift at 2020-10-04 04:20:55 +0000
+
+//
+//  GetPostCommentsUseCase.swift
+//  PostsApp
+//
+//  Created by Rodrigo Rodovalho on 27/09/20.
+//
+
+import Cuckoo
+@testable import PostsApp
+
+import Foundation
+import RxSwift
+
+
+ class MockGetPostCommentsUseCase: GetPostCommentsUseCase, Cuckoo.ClassMock {
+    
+     typealias MocksType = GetPostCommentsUseCase
+    
+     typealias Stubbing = __StubbingProxy_GetPostCommentsUseCase
+     typealias Verification = __VerificationProxy_GetPostCommentsUseCase
+
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+
+    
+    private var __defaultImplStub: GetPostCommentsUseCase?
+
+     func enableDefaultImplementation(_ stub: GetPostCommentsUseCase) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+    
+
+    
+
+    
+
+    
+    
+    
+     override func executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]> {
+        
+    return cuckoo_manager.call("executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]>",
+            parameters: (requestValues),
+            escapingParameters: (requestValues),
+            superclassCall:
+                
+                super.executeUseCase(requestValues: requestValues)
+                ,
+            defaultCall: __defaultImplStub!.executeUseCase(requestValues: requestValues))
+        
+    }
+    
+
+	 struct __StubbingProxy_GetPostCommentsUseCase: Cuckoo.StubbingProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	
+	     init(manager: Cuckoo.MockManager) {
+	        self.cuckoo_manager = manager
+	    }
+	    
+	    
+	    func executeUseCase<M1: Cuckoo.OptionalMatchable>(requestValues: M1) -> Cuckoo.ClassStubFunction<(GetPostCommentsRequestValues?), Maybe<[Comment]>> where M1.OptionalMatchedType == GetPostCommentsRequestValues {
+	        let matchers: [Cuckoo.ParameterMatcher<(GetPostCommentsRequestValues?)>] = [wrap(matchable: requestValues) { $0 }]
+	        return .init(stub: cuckoo_manager.createStub(for: MockGetPostCommentsUseCase.self, method: "executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]>", parameterMatchers: matchers))
+	    }
+	    
+	}
+
+	 struct __VerificationProxy_GetPostCommentsUseCase: Cuckoo.VerificationProxy {
+	    private let cuckoo_manager: Cuckoo.MockManager
+	    private let callMatcher: Cuckoo.CallMatcher
+	    private let sourceLocation: Cuckoo.SourceLocation
+	
+	     init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+	        self.cuckoo_manager = manager
+	        self.callMatcher = callMatcher
+	        self.sourceLocation = sourceLocation
+	    }
+	
+	    
+	
+	    
+	    @discardableResult
+	    func executeUseCase<M1: Cuckoo.OptionalMatchable>(requestValues: M1) -> Cuckoo.__DoNotUse<(GetPostCommentsRequestValues?), Maybe<[Comment]>> where M1.OptionalMatchedType == GetPostCommentsRequestValues {
+	        let matchers: [Cuckoo.ParameterMatcher<(GetPostCommentsRequestValues?)>] = [wrap(matchable: requestValues) { $0 }]
+	        return cuckoo_manager.verify("executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]>", callMatcher: callMatcher, parameterMatchers: matchers, sourceLocation: sourceLocation)
+	    }
+	    
+	}
+}
+
+ class GetPostCommentsUseCaseStub: GetPostCommentsUseCase {
+    
+
+    
+
+    
+     override func executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]>  {
+        return DefaultValueRegistry.defaultValue(for: (Maybe<[Comment]>).self)
+    }
+    
+}
+
+
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 04:20:55 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -345,7 +451,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 04:00:01 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 04:20:55 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -361,19 +467,19 @@ import Foundation
 import RxSwift
 
 
- class MockPostCommentslViewModel: PostCommentslViewModel, Cuckoo.ClassMock {
+ class MockPostCommentsViewModel: PostCommentsViewModel, Cuckoo.ClassMock {
     
-     typealias MocksType = PostCommentslViewModel
+     typealias MocksType = PostCommentsViewModel
     
-     typealias Stubbing = __StubbingProxy_PostCommentslViewModel
-     typealias Verification = __VerificationProxy_PostCommentslViewModel
+     typealias Stubbing = __StubbingProxy_PostCommentsViewModel
+     typealias Verification = __VerificationProxy_PostCommentsViewModel
 
      let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
 
     
-    private var __defaultImplStub: PostCommentslViewModel?
+    private var __defaultImplStub: PostCommentsViewModel?
 
-     func enableDefaultImplementation(_ stub: PostCommentslViewModel) {
+     func enableDefaultImplementation(_ stub: PostCommentsViewModel) {
         __defaultImplStub = stub
         cuckoo_manager.enableDefaultStubImplementation()
     }
@@ -400,7 +506,7 @@ import RxSwift
     }
     
 
-	 struct __StubbingProxy_PostCommentslViewModel: Cuckoo.StubbingProxy {
+	 struct __StubbingProxy_PostCommentsViewModel: Cuckoo.StubbingProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	
 	     init(manager: Cuckoo.MockManager) {
@@ -410,12 +516,12 @@ import RxSwift
 	    
 	    func fetchComments<M1: Cuckoo.Matchable>(withPost post: M1) -> Cuckoo.ClassStubNoReturnFunction<(Post)> where M1.MatchedType == Post {
 	        let matchers: [Cuckoo.ParameterMatcher<(Post)>] = [wrap(matchable: post) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockPostCommentslViewModel.self, method: "fetchComments(withPost: Post)", parameterMatchers: matchers))
+	        return .init(stub: cuckoo_manager.createStub(for: MockPostCommentsViewModel.self, method: "fetchComments(withPost: Post)", parameterMatchers: matchers))
 	    }
 	    
 	}
 
-	 struct __VerificationProxy_PostCommentslViewModel: Cuckoo.VerificationProxy {
+	 struct __VerificationProxy_PostCommentsViewModel: Cuckoo.VerificationProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	    private let callMatcher: Cuckoo.CallMatcher
 	    private let sourceLocation: Cuckoo.SourceLocation
@@ -438,7 +544,7 @@ import RxSwift
 	}
 }
 
- class PostCommentslViewModelStub: PostCommentslViewModel {
+ class PostCommentsViewModelStub: PostCommentsViewModel {
     
 
     
@@ -451,7 +557,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 04:00:01 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 04:20:55 +0000
 
 //
 //  PostListViewModelProtocol.swift

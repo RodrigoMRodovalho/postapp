@@ -16,6 +16,7 @@ class PostListViewModelTest: XCTestCase {
 
     var sut : PostListViewModel!
     var mockUseCase: MockGetPostUseCase!
+    let testUtil = TestUtil()
     
     override func setUpWithError() throws {
         let repo = MockPostRepositoryProtocol()
@@ -32,11 +33,12 @@ class PostListViewModelTest: XCTestCase {
         
         let expectation = self.expectation(description: "PostListViewModel")
         
-        let post = createPost(1)
-        let post2 = createPost(2)
+        let post = testUtil.createPost(1)
+        let post2 = testUtil.createPost(2)
         
         stub(mockUseCase) {  useCase in
-            when(useCase.executeUseCase(requestValues: any())).thenReturn(Maybe.just([post, post2]))
+            when(useCase.executeUseCase(requestValues: any()))
+                .thenReturn(Maybe.just([post, post2]))
         }
         
         _ = sut.observePostData.subscribe(onNext: { (result) in
@@ -61,7 +63,8 @@ class PostListViewModelTest: XCTestCase {
         let expectation = self.expectation(description: "PostListViewModel")
         
         stub(mockUseCase) {  useCase in
-            when(useCase.executeUseCase(requestValues: any())).thenReturn(Maybe.error(RemoteServiceError.malformedURL))
+            when(useCase.executeUseCase(requestValues: any()))
+                .thenReturn(Maybe.error(RemoteServiceError.malformedURL))
         }
         
         _ = sut.observePostData.subscribe(onNext: { (result) in
@@ -77,11 +80,5 @@ class PostListViewModelTest: XCTestCase {
         sut.fetchPosts()
         
         waitForExpectations(timeout: 2, handler: nil)
-    }
-    
-    
-    
-    private func createPost(_ identifier: Int) -> Post {
-        return Post(id: "id\(identifier)", authorFirstName: "first\(identifier)", authorLastName: "last\(identifier)", authorEmail: "email\(identifier)", authorProfilePictureUrl: "profile\(identifier)", title: "title\(identifier)", originalUrl: "original\(identifier)", likes: identifier, createdDatetime: "time\(identifier)", tagList: ["tag\(identifier)"], imageUrl: "image\(identifier)")
     }
 }

@@ -54,6 +54,7 @@
 		DE8E11DF2528FFCA00AF0090 /* PostListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8E11DE2528FFCA00AF0090 /* PostListViewModelProtocol.swift */; };
 		DED73FC62529500C002C3336 /* PostAppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED73FC52529500C002C3336 /* PostAppAssembly.swift */; };
 		DED73FF125297D18002C3336 /* GetPostCommentsUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED73FF025297D18002C3336 /* GetPostCommentsUseCaseTest.swift */; };
+		DED73FF9252980AC002C3336 /* PostListCommentsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED73FF8252980AC002C3336 /* PostListCommentsViewModelTest.swift */; };
 		DEE3E9FF25200027003EF386 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3E9FE25200027003EF386 /* PostListViewModel.swift */; };
 		DEE3EA0725200127003EF386 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3EA0625200127003EF386 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +134,7 @@
 		DE8E11DE2528FFCA00AF0090 /* PostListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModelProtocol.swift; sourceTree = "<group>"; };
 		DED73FC52529500C002C3336 /* PostAppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAppAssembly.swift; sourceTree = "<group>"; };
 		DED73FF025297D18002C3336 /* GetPostCommentsUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostCommentsUseCaseTest.swift; sourceTree = SOURCE_ROOT; };
+		DED73FF8252980AC002C3336 /* PostListCommentsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCommentsViewModelTest.swift; sourceTree = "<group>"; };
 		DEE3E9FE25200027003EF386 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		DEE3EA0625200127003EF386 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EF58F05986EDB20BAC6D1FD4 /* Pods-PostsApp-PostsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsApp-PostsAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PostsApp-PostsAppUITests/Pods-PostsApp-PostsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				DE4FD6022526CBE5006700BD /* PostListViewModelTest.swift */,
+				DED73FF8252980AC002C3336 /* PostListCommentsViewModelTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -813,7 +816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \n#\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostCommentsUseCase.swift\" \n#\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -869,6 +872,7 @@
 				DE4FD6392526DAF4006700BD /* PostRepositoryTest.swift in Sources */,
 				DE27B10D251FEBD800529D13 /* PostsAppTests.swift in Sources */,
 				DE4FD6F625282946006700BD /* MockURLProtocol.swift in Sources */,
+				DED73FF9252980AC002C3336 /* PostListCommentsViewModelTest.swift in Sources */,
 				DED73FF125297D18002C3336 /* GetPostCommentsUseCaseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,9 +17,9 @@ class FeaturesDependencyAssembly : Assembly {
             return PostListViewModel(getPostUseCase: useCase)
         }
         
-        container.register(PostCommentslViewModel.self) { r in
+        container.register(PostCommentsViewModel.self) { r in
             let useCase = r.resolve(GetPostCommentsUseCase.self)!
-            return PostCommentslViewModel(getPostCommentsUseCase: useCase)
+            return PostCommentsViewModel(getPostCommentsUseCase: useCase)
         }
     }
 
