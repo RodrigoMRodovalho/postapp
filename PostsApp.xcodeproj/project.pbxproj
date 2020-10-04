@@ -484,8 +484,8 @@
 		DEE3E9F0251FFDB4003EF386 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				DE32CF08252A6BCF00A1EAD6 /* Resources */,
 				DED73FC425294FF5002C3336 /* di */,
+				DE32CF08252A6BCF00A1EAD6 /* Resources */,
 				DE27B0F5251FEBD400529D13 /* AppDelegate.swift */,
 				DE27B0F7251FEBD400529D13 /* SceneDelegate.swift */,
 				DE27B103251FEBD700529D13 /* Info.plist */,

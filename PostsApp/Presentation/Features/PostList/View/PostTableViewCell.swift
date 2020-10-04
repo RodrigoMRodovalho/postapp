@@ -28,7 +28,6 @@ class PostTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         shadowAndBorderForCell(with: self)
-        //contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

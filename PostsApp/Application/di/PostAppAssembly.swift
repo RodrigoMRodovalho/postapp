@@ -20,7 +20,6 @@ class PostAppAssembly: Assembly {
             let postListController = r.resolve(PostListViewController.self)!
             let navigationController = UINavigationController(rootViewController: postListController)
             navigationController.navigationBar.barTintColor = .systemPurple
-            navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             navigationController.navigationBar.tintColor = .systemGray6
             navigationController.navigationBar.isTranslucent = false
             return navigationController
