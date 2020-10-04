@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  PostsApp
+
+  Created by Rodrigo Rodovalho on 04/10/20.
+  
+*/
+
+//Screen Titles
+
+"posts" = "Posts";
+"comments" = "Comments";
+
+//Screen View
+"likes" = "Likes";
+
+"no_post_available" = "No post yet";
+"all_post_read" = "You read all posts";
+
+"no_comments_available" = "No comments yet";
+"all_comments_read" = "You read all comments";
+
+//Error
+"error_title" = "Something whent wrong.";
+"error_retry_text" = "Swipe down to retry";
+
+//TableCell
+"postTableViewCellName" = "PostTableViewCell";
+"postTableViewCellIdentifier" = "PostCell";
+
+"commentTableViewCellName" = "CommentTableViewCell";
+"commentTableViewCellIdentifier" = "CommentCell";

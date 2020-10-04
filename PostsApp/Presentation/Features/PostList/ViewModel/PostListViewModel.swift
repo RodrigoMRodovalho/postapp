@@ -23,7 +23,7 @@ class PostListViewModel: PostListViewModelProtocol {
         useCase.run().subscribe { posts in
             self.observePostData.onNext(Result.success(posts))
         } onError: { error in
-            print("PostListViewModel onError \(error)")
+            //print("PostListViewModel onError \(error)")
             self.observePostData.onNext(Result.failure(error))
         }.disposed(by: disposeBag)
     }

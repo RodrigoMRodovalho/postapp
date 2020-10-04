@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  PostsApp
+
+  Created by Rodrigo Rodovalho on 04/10/20.
+  
+*/
+
+//Screen Titles
+
+"posts" = "Publicaciones";
+"comments" = "Comentarios";
+
+//Screen View
+"likes" = "Gustos";
+
+"no_post_available" = "Aún no hay publicaciones";
+"all_post_read" = "Tu lees todas las publicaciones";
+
+"no_comments_available" = "Aún no hay comentarios";
+"all_comments_read" = "Uu lees todos los comentarios";
+
+//Error
+"error_title" = "Algo salió mal.";
+"error_retry_text" = "Desliza hacia abajo para volver a intentarlo";
+

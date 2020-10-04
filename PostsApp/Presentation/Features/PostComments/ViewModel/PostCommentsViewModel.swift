@@ -21,10 +21,10 @@ class PostCommentsViewModel: PostCommentsViewModelProtocol {
     func fetchComments(withPost post: Post){
         useCase.requestValues = GetPostCommentsRequestValues(postId: post.id)
         useCase.run().subscribe { comments in
-            print("comment fetched \(comments)")
+            //print("comment fetched \(comments)")
             self.observePostCommentsData.onNext(Result.success(comments))
         } onError: { error in
-            print("PostListViewModel onError \(error)")
+            //print("PostListViewModel onError \(error)")
             self.observePostCommentsData.onNext(Result.failure(error))
         }.disposed(by: disposeBag)
     }

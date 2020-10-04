@@ -10,13 +10,13 @@ target 'PostsApp' do
   pod 'Swinject'
   pod 'Kingfisher', '~> 5.0'
   pod 'TagListView', '~> 1.0'
+  pod 'SwiftGen', '~> 6.0'
 
   target 'PostsAppTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'RxBlocking', '~> 5'
     pod 'RxTest', '~> 5'
-    pod 'Swinject'
     pod "Cuckoo"
   end
 
