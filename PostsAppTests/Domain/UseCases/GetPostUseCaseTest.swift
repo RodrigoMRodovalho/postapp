@@ -83,7 +83,7 @@ class GetPostsUseCaseTest: XCTestCase {
     }
     
     func testGetPostUseCase_WhenPerformingExecutionFetch_ShouldExecutedCommand() throws {
-        
+            
         let expectation = self.expectation(description: "GetPostUseCase")
         
         stub(repositoryProtocol) {  repositoryProtocol in
@@ -92,7 +92,7 @@ class GetPostsUseCaseTest: XCTestCase {
             when(repositoryProtocol.fetchPostData(limit: 10, page: 1)).thenReturn(Single.just([testUtl.createPost(2)]))
         }
         
-        XCTAssertEqual(-1, sut.currentPage)
+        XCTAssertEqual(0, sut.currentPage)
         
         _ = sut?.run().subscribe(onSuccess: { (posts) in
             XCTAssertEqual(1, posts.count)
@@ -113,7 +113,7 @@ class GetPostsUseCaseTest: XCTestCase {
         waitForExpectations(timeout: 3)
         
         XCTAssertFalse(sut.isExecuting)
-        XCTAssertEqual(0, sut.currentPage)
+        XCTAssertEqual(1, sut.currentPage)
     }
     
     func testGetPostUseCase_WhenErrorHappened_ShouldReturnStreamError() throws {

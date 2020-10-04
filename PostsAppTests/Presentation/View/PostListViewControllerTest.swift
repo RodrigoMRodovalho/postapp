@@ -67,8 +67,6 @@ class PostListViewControllerTest: XCTestCase {
         
         XCTAssertNil(sut.scrollableTableView.backgroundView)
         XCTAssertNil(sut.scrollableTableView.tableFooterView)
-        XCTAssertEqual(postData.count, sut.scrollableTableView.numberOfRows(inSection: 0))
-        
         
         //testTableViewCellHasReuseIdentifier
         let cell = sut.tableView(sut.scrollableTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? PostTableViewCell

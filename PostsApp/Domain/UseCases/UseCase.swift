@@ -36,7 +36,10 @@ class UseCase<RV: RequestValues, T> {
 //                }
 //            }
             .do(onNext: nil,
-                afterNext: { _ in self.currentPage += 1},
+                afterNext: { _ in
+                    self.currentPage += 1
+                    self.isExecuting = false
+                },
                 onError: nil,
                 afterError: { _ in self.isExecuting = false },
                 onCompleted: nil,

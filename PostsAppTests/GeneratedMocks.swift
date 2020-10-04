@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 00:26:08 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 03:44:43 +0000
 
 //
 //  RemoteServiceProtocol.swift
@@ -103,7 +103,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 00:26:08 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 03:44:43 +0000
 
 //
 //  PostRepository.swift
@@ -239,7 +239,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 00:26:08 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 03:44:43 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -274,30 +274,6 @@ import RxSwift
     
 
     
-    
-    
-     override var currentPage: Int {
-        get {
-            return cuckoo_manager.getter("currentPage",
-                superclassCall:
-                    
-                    super.currentPage
-                    ,
-                defaultCall: __defaultImplStub!.currentPage)
-        }
-        
-        set {
-            cuckoo_manager.setter("currentPage",
-                value: newValue,
-                superclassCall:
-                    
-                    super.currentPage = newValue
-                    ,
-                defaultCall: __defaultImplStub!.currentPage = newValue)
-        }
-        
-    }
-    
 
     
 
@@ -326,11 +302,6 @@ import RxSwift
 	    }
 	    
 	    
-	    var currentPage: Cuckoo.ClassToBeStubbedProperty<MockGetPostUseCase, Int> {
-	        return .init(manager: cuckoo_manager, name: "currentPage")
-	    }
-	    
-	    
 	    func executeUseCase<M1: Cuckoo.OptionalMatchable>(requestValues: M1) -> Cuckoo.ClassStubFunction<(GetPostRequestValues?), Maybe<[Post]>> where M1.OptionalMatchedType == GetPostRequestValues {
 	        let matchers: [Cuckoo.ParameterMatcher<(GetPostRequestValues?)>] = [wrap(matchable: requestValues) { $0 }]
 	        return .init(stub: cuckoo_manager.createStub(for: MockGetPostUseCase.self, method: "executeUseCase(requestValues: GetPostRequestValues?) -> Maybe<[Post]>", parameterMatchers: matchers))
@@ -350,11 +321,6 @@ import RxSwift
 	    }
 	
 	    
-	    
-	    var currentPage: Cuckoo.VerifyProperty<Int> {
-	        return .init(manager: cuckoo_manager, name: "currentPage", callMatcher: callMatcher, sourceLocation: sourceLocation)
-	    }
-	    
 	
 	    
 	    @discardableResult
@@ -368,16 +334,6 @@ import RxSwift
 
  class GetPostUseCaseStub: GetPostUseCase {
     
-    
-     override var currentPage: Int {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (Int).self)
-        }
-        
-        set { }
-        
-    }
-    
 
     
 
@@ -389,7 +345,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 00:26:08 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 03:44:43 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -495,7 +451,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 00:26:08 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 03:44:43 +0000
 
 //
 //  PostListViewModelProtocol.swift
