@@ -38,13 +38,20 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
         switch result {
         case .success(let newData):
             self.data.append(contentsOf: newData)
-        case .failure(_):
+            scrollableTableView.backgroundView = nil
+            scrollableTableView.reloadData()
+            scrollableTableView.tableFooterView = nil
+        case .failure(let e):
             //TODO handle error
+            scrollableTableView.tableFooterView = nil
+            if (data.isEmpty){
+                scrollableTableView.backgroundView = createErrorView(withError: e)
+            } else {
+                scrollableTableView.tableFooterView = createErrorView(withError: e)
+            }
+            
             break
         }
-        scrollableTableView.backgroundView = nil
-        scrollableTableView.reloadData()
-        scrollableTableView.tableFooterView = nil
     }
     
 }

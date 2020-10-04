@@ -61,13 +61,52 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         return footerView
     }
     
+    func createErrorView(withError error: Error) -> UIView {
+        return createViewError(withError: error)
+//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+//        let errorLabel = UILabel(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height/2 , width: view.frame.size.width, height: 100))
+//        //errorLabel.text = error.localizedDescription
+//        errorLabel.text = "error happened"
+//        //errorLabel.center = footerView.center
+//        footerView.addSubview(errorLabel)
+//        return footerView
+    }
+    
+    func createViewError(withError error: Error) -> UIView {
+        
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 30
+        footerView.addSubview(stackView)
+
+        stackView.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
+        stackView.axis = .vertical
+
+        let errorMessage = UILabel()
+        errorMessage.numberOfLines = 0
+        errorMessage.text = "Something whent wrong. \(error.localizedDescription)"
+        stackView.addArrangedSubview(errorMessage)
+
+        let retryInstructions = UILabel()
+        retryInstructions.numberOfLines = 1
+        retryInstructions.text = "Swipe down to retry"
+        stackView.addArrangedSubview(retryInstructions)
+        
+        return footerView
+    }
+    
     func configureScrollHandler(handler: @escaping () -> Void){
         self.scrollViewHandler = handler
     }
     
+    // MARK: - ScrollViewDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
         if position > (scrollableTableView.contentSize.height - scrollView.frame.size.height - 100) {
+            scrollableTableView.backgroundView = nil
             scrollableTableView.tableFooterView = createSpinnerFooter()
             self.scrollViewHandler()
         }

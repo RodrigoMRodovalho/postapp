@@ -11,8 +11,7 @@ import RxSwift
 struct GetPostRequestValues: RequestValues {}
 
 class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
-    
-    var currentPage = -1
+
     let repository: PostRepositoryProtocol
     
     init (repository: PostRepositoryProtocol){
@@ -20,10 +19,7 @@ class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     }
     
     override func executeUseCase(requestValues: GetPostRequestValues?) -> Maybe<[Post]> {
-        
-        currentPage += 1
-        return repository.fetchPostData(limit: 10, page: currentPage).asMaybe()
-        //.delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+        return repository.fetchPostData(limit: limit, page: currentPage).asMaybe()
     }
     
 }

@@ -14,7 +14,6 @@ struct GetPostCommentsRequestValues: RequestValues {
 
 class GetPostCommentsUseCase: UseCase<GetPostCommentsRequestValues, [Comment]> {
     
-    private var currentPage = -1
     let repository: PostRepositoryProtocol
     
     init (repository: PostRepositoryProtocol){
@@ -22,8 +21,6 @@ class GetPostCommentsUseCase: UseCase<GetPostCommentsRequestValues, [Comment]> {
     }
     
     override func executeUseCase(requestValues: GetPostCommentsRequestValues?) -> Maybe<[Comment]> {
-        currentPage += 1
-        return repository.fetchPostComments(withId: requestValues!.postId, limit: 10, page: currentPage).asMaybe()
-        //.delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+        return repository.fetchPostComments(withId: requestValues!.postId, limit: limit, page: currentPage).asMaybe()
     }
 }

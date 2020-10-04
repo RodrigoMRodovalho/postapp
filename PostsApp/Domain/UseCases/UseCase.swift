@@ -14,6 +14,8 @@ class UseCase<RV: RequestValues, T> {
     
     var requestValues: RV?
     var isExecuting = false
+    var currentPage = -1
+    var limit = 10
     
     func run() -> Maybe<T> {
         
@@ -22,11 +24,25 @@ class UseCase<RV: RequestValues, T> {
         }
         
         isExecuting = true
+        currentPage += 1
         
         return executeUseCase(requestValues: requestValues)
-            .do(onNext: nil, afterNext: nil, onError: nil, afterError: nil, onCompleted: {
-                self.isExecuting = false
-            }, afterCompleted: nil, onSubscribe: nil, onSubscribed: nil, onDispose: nil)
+            .delay(.seconds(4), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
+            .map {
+                let random = Int.random(in: 1...2)
+                if (random % 2 == 0){
+                    return $0
+                } else {
+                    throw RemoteServiceError.notConnectedToInternet
+                }
+            }
+            .do(onNext: nil,
+                afterNext: { _ in self.currentPage += 1},
+                onError: nil,
+                afterError: { _ in self.isExecuting = false },
+                onCompleted: nil,
+                afterCompleted: { self.isExecuting = false},
+                onSubscribe: nil, onSubscribed: nil, onDispose: nil)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.asyncInstance)
     }
