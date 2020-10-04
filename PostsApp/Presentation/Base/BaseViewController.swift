@@ -10,16 +10,67 @@ import Swinject
 import RxSwift
 
 
-class BaseViewController<VM>: UIViewController {
+class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
 
     let disposeBag = DisposeBag()
     var viewModel: VM?
     
+    var safeArea: UILayoutGuide!
+    
+    var scrollableTableView: UITableView!
+    
+    var scrollViewHandler : (() -> Void)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         viewModel = Assembler.sharedAssembler.resolver.resolve(VM.self)
     }
     
+    func configureView(withXibName xib: String, withReusableCellIdentifier cellId: String) {
+        
+        scrollableTableView = {
+            let tableView = UITableView(frame: .zero, style: .plain)
+            let nib = UINib(nibName: xib,bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: cellId)
+            return tableView
+        }()
+        
+        
+        view.backgroundColor = .white
+        safeArea = view.layoutMarginsGuide
+        view.addSubview(scrollableTableView)
+        
+        let indicator = UIActivityIndicatorView()
+        scrollableTableView.backgroundView = indicator
+        indicator.startAnimating()
+        
+        scrollableTableView.translatesAutoresizingMaskIntoConstraints = false
+        scrollableTableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        scrollableTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        scrollableTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        scrollableTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        scrollableTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+    }
+    
+    func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
+    
+    func configureScrollHandler(handler: @escaping () -> Void){
+        self.scrollViewHandler = handler
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (scrollableTableView.contentSize.height - scrollView.frame.size.height - 100) {
+            scrollableTableView.tableFooterView = createSpinnerFooter()
+            self.scrollViewHandler()
+        }
+    }
 }
+

@@ -40,14 +40,14 @@ class PostListViewControllerTest: XCTestCase {
 
     func testPostListViewController_WhenValidateTableViewDelegateConfiguration_ShouldBeValid() throws {
         sut.loadViewIfNeeded()
-        XCTAssertNotNil(sut.tableVieww.delegate)
+        XCTAssertNotNil(sut.scrollableTableView.delegate)
         XCTAssertTrue(sut.conforms(to: UITableViewDelegate.self))
         XCTAssertTrue(sut.responds(to: #selector(sut.tableView(_:didSelectRowAt:))))
     }
     
     func testPostListViewController_WhenValidateTableViewDataSourceConfiguration_ShouldBeValid() throws {
         sut.loadViewIfNeeded()
-        XCTAssertNotNil(sut.tableVieww.dataSource)
+        XCTAssertNotNil(sut.scrollableTableView.dataSource)
         XCTAssertTrue(sut.conforms(to: UITableViewDataSource.self))
         XCTAssertTrue(sut.responds(to: #selector(sut.tableView(_:numberOfRowsInSection:))))
         XCTAssertTrue(sut.responds(to: #selector(sut.tableView(_:cellForRowAt:))))
@@ -65,20 +65,20 @@ class PostListViewControllerTest: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        XCTAssertNil(sut.tableVieww.backgroundView)
-        XCTAssertNil(sut.tableVieww.tableFooterView)
-        XCTAssertEqual(postData.count, sut.tableVieww.numberOfRows(inSection: 0))
+        XCTAssertNil(sut.scrollableTableView.backgroundView)
+        XCTAssertNil(sut.scrollableTableView.tableFooterView)
+        XCTAssertEqual(postData.count, sut.scrollableTableView.numberOfRows(inSection: 0))
         
         
         //testTableViewCellHasReuseIdentifier
-        let cell = sut.tableView(sut.tableVieww, cellForRowAt: IndexPath(row: 0, section: 0)) as? PostTableViewCell
+        let cell = sut.tableView(sut.scrollableTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? PostTableViewCell
         let actualReuseIdentifer = cell?.reuseIdentifier
         let expectedReuseIdentifier = "PostCell"
         XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
         
         //testTableCellHasCorrectLabelText
         for i in 0..<postData.count {
-            let cell = sut.tableView(sut.tableVieww, cellForRowAt: IndexPath(row: i, section: 0)) as? PostTableViewCell
+            let cell = sut.tableView(sut.scrollableTableView, cellForRowAt: IndexPath(row: i, section: 0)) as? PostTableViewCell
             XCTAssertEqual(postData[i].authorEmail, cell?.authorEmailLabel.text)
             XCTAssertEqual("\(postData[i].authorFirstName) \(postData[i].authorLastName)", cell?.authorNameLabel.text)
             XCTAssertEqual(postData[i].createdDatetime, cell?.postDatetimeLabel.text)

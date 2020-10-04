@@ -390,20 +390,20 @@
 		DE84CB44252172850090D0C0 /* PostComments */ = {
 			isa = PBXGroup;
 			children = (
-				DE84CB79252189940090D0C0 /* view */,
-				DE84CB3A252170220090D0C0 /* PostCommentsViewController.swift */,
-				DE84CB3525216FE80090D0C0 /* PostCommentsViewModel.swift */,
+				DE8E121925293D9600AF0090 /* ViewModel */,
+				DE84CB79252189940090D0C0 /* View */,
 			);
 			path = PostComments;
 			sourceTree = "<group>";
 		};
-		DE84CB79252189940090D0C0 /* view */ = {
+		DE84CB79252189940090D0C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE84CB3A252170220090D0C0 /* PostCommentsViewController.swift */,
 				DE84CB7A252189E20090D0C0 /* CommentTableViewCell.swift */,
 				DE84CB7B252189E20090D0C0 /* CommentTableViewCell.xib */,
 			);
-			path = view;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE8E11AE2528F25B00AF0090 /* Mapper */ = {
@@ -427,6 +427,14 @@
 			children = (
 				DE8E11DE2528FFCA00AF0090 /* PostListViewModelProtocol.swift */,
 				DEE3E9FE25200027003EF386 /* PostListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE8E121925293D9600AF0090 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE84CB3525216FE80090D0C0 /* PostCommentsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -794,7 +802,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/PostCommentsViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \n#\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
+			shellScript = "# Define output file. Change \"${PROJECT_DIR}/${PROJECT_NAME}Tests\" to your test's root source folder, if it's not the default name.\nOUTPUT_FILE=\"${PROJECT_DIR}/${PROJECT_NAME}Tests/GeneratedMocks.swift\"\necho \"Generated Mocks File = ${OUTPUT_FILE}\"\n\n# Define input directory. Change \"${PROJECT_DIR}/${PROJECT_NAME}\" to your project's root source folder, if it's not the default name.\nINPUT_DIR=\"${PROJECT_DIR}/${PROJECT_NAME}\"\necho \"Mocks Input Directory = ${INPUT_DIR}\"\n\n# Generate mock files, include as many input files as you'd like to create mocks for.\n\"${PODS_ROOT}/Cuckoo/run\" generate --testable \"${PROJECT_NAME}\" \\\n--output \"${OUTPUT_FILE}\" \\\n\"${INPUT_DIR}/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift\" \\\n\"${INPUT_DIR}/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift\" \\\n\"${INPUT_DIR}/Domain/Repository/PostRepositoryProtocol.swift\" \\\n\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n\"${INPUT_DIR}/Domain/UseCases/GetPostsUseCase.swift\" \n#\"${INPUT_DIR}/Data/Repository/Remote/service/RemoteServiceProtocol.swift\" \\\n# ... and so forth, the last line should never end with a backslash\n\n# After running once, locate `GeneratedMocks.swift` and drag it into your Xcode test target group.\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

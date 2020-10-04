@@ -13,40 +13,19 @@ import Kingfisher
 class PostListViewController: BaseViewController<PostListViewModelProtocol>{
     
     var data = [Post]()
-    
-    var safeArea: UILayoutGuide!
-    
-    let tableVieww: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        let nib = UINib(nibName: "PostTableViewCell",bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "PostCell")
-        return tableView
-    }()
-    
-    override func loadView() {
-        super.loadView()
-        view.backgroundColor = .white
-        safeArea = view.layoutMarginsGuide
-        view.addSubview(tableVieww)
-        let indicator = UIActivityIndicatorView()
-        tableVieww.backgroundView = indicator
-        indicator.startAnimating()
         
-        tableVieww.translatesAutoresizingMaskIntoConstraints = false
-        tableVieww.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        tableVieww.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableVieww.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableVieww.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableVieww.separatorStyle = UITableViewCell.SeparatorStyle.none
-        //tableView.backgroundColor = UIColor.lightGray
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Posts"
-        // Do any additional setup after loading the view.
-        tableVieww.dataSource = self
-        tableVieww.delegate = self
+    
+        configureView(withXibName: "PostTableViewCell", withReusableCellIdentifier: "PostCell")
+        
+        scrollableTableView.dataSource = self
+        scrollableTableView.delegate = self
+        
+        configureScrollHandler { [weak self] in
+            self?.viewModel?.fetchPosts()
+        }
         
         viewModel?.observePostData.subscribe(onNext: { (result) in
             self.updateTableView(result: result)
@@ -64,19 +43,11 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
             break
         }
     
-        tableVieww.backgroundView = nil
-        tableVieww.reloadData()
-        tableVieww.tableFooterView = nil
+        scrollableTableView.backgroundView = nil
+        scrollableTableView.reloadData()
+        scrollableTableView.tableFooterView = nil
     }
     
-    private func createSpinnerFooter() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-        return footerView
-    }
     
 }
 
@@ -116,22 +87,16 @@ extension PostListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailsController = PostCommentsViewController()
         detailsController.post = data[indexPath.row]
-        let navigationController = UINavigationController(rootViewController: detailsController)
-        self.showDetailViewController(navigationController, sender: self)
-    }
-
-}
-
-extension PostListViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        let position = scrollView.contentOffset.y
-        if position > (tableVieww.contentSize.height - scrollView.frame.size.height - 100) {
-            tableVieww.tableFooterView = createSpinnerFooter()
-            viewModel?.fetchPosts()
+        //handling navigation title for ipad, iphone is straighforward.
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let controller = UINavigationController(rootViewController: detailsController)
+            self.showDetailViewController(controller, sender: self)
+        } else {
+            self.showDetailViewController(detailsController, sender: self)
         }
         
+        
     }
-}
 
+}

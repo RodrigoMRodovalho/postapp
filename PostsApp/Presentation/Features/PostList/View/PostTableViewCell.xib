@@ -180,11 +180,6 @@
             <point key="canvasLocation" x="-323.19999999999999" y="191.00985221674878"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="FTD-75-QPf">
-            <size key="intrinsicContentSize" width="360" height="16"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
