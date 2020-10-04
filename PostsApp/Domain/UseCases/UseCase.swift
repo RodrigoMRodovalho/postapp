@@ -13,9 +13,22 @@ protocol RequestValues{}
 class UseCase<RV: RequestValues, T> {
     
     var requestValues: RV?
+    var isExecuting = false
     
     func run() -> Maybe<T> {
+        
+        if (isExecuting) {
+            print("skipping usecase execution, because its already executing something")
+            return Maybe.empty()
+        }
+        
+        print("start usecase execution")
+        isExecuting = true
+        
         return executeUseCase(requestValues: requestValues)
+            .do(onNext: nil, afterNext: nil, onError: nil, afterError: nil, onCompleted: {
+                self.isExecuting = false
+            }, afterCompleted: nil, onSubscribe: nil, onSubscribed: nil, onDispose: nil)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .observeOn(MainScheduler.asyncInstance)
     }

@@ -13,7 +13,6 @@ struct GetPostRequestValues: RequestValues {}
 class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     
     var currentPage = -1
-    var isExecuting = false
     let repository: PostRepositoryProtocol
     
     init (repository: PostRepositoryProtocol){
@@ -22,17 +21,8 @@ class GetPostUseCase: UseCase<GetPostRequestValues, [Post]> {
     
     override func executeUseCase(requestValues: GetPostRequestValues?) -> Maybe<[Post]> {
         
-        if (isExecuting) {
-            return Maybe.empty()
-        }
-        
-        isExecuting = true
-
         currentPage += 1
-        return repository.fetchPostData(limit: 10, page: currentPage).asMaybe().map {
-            self.isExecuting = false
-            return $0
-        }
+        return repository.fetchPostData(limit: 10, page: currentPage).asMaybe()
         //.delay(.seconds(5), scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
     }
     
