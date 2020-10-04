@@ -27,23 +27,29 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
             self?.viewModel?.fetchPosts()
         }
         
-        viewModel?.observePostData.subscribe(onNext: { (result) in
-            self.updateTableView(result: result)
+        viewModel?.observePostData.subscribe(onNext: { [weak self] (result) in
+            self?.updateTableView(result: result)
         }).disposed(by: disposeBag)
         
         viewModel?.fetchPosts()
     }
-    
+            
     private func updateTableView(result: Result<[Post], Error>) {
+        scrollableTableView.tableFooterView = nil
+        scrollableTableView.backgroundView = nil
         switch result {
         case .success(let newData):
             self.data.append(contentsOf: newData)
-            scrollableTableView.backgroundView = nil
-            scrollableTableView.reloadData()
-            scrollableTableView.tableFooterView = nil
+            if newData.isEmpty {
+                scrollableTableView.tableFooterView = createNoDataFooter(self.data.isEmpty ?
+                                                                            "No post yet" :
+                                                                            "You are read all posts")
+            } else {
+                data.append(contentsOf: newData)
+                scrollableTableView.reloadData()
+            }
         case .failure(let e):
             //TODO handle error
-            scrollableTableView.tableFooterView = nil
             if (data.isEmpty){
                 scrollableTableView.backgroundView = createErrorView(withError: e)
             } else {

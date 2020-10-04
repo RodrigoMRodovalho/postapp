@@ -26,8 +26,8 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
             self?.viewModel?.fetchComments(withPost: (self?.post!)!)
         }
         
-        viewModel?.observePostCommentsData.subscribe(onNext: { (result) in
-            self.updateTableView(result: result)
+        viewModel?.observePostCommentsData.subscribe(onNext: { [weak self] (result) in
+            self?.updateTableView(result: result)
         }).disposed(by: disposeBag)
         
         viewModel?.fetchComments(withPost: post!)
@@ -35,21 +35,27 @@ class PostCommentsViewController: BaseViewController<PostCommentslViewModel> {
     }
     
     private func updateTableView(result: Result<[Comment], Error>) {
+
+        scrollableTableView.backgroundView = nil
+        scrollableTableView.tableFooterView = nil
+
         switch result {
         case .success(let newData):
-            self.data.append(contentsOf: newData)
-            scrollableTableView.backgroundView = nil
-            scrollableTableView.reloadData()
-            scrollableTableView.tableFooterView = nil
+            if newData.isEmpty {
+                scrollableTableView.tableFooterView = createNoDataFooter(self.data.isEmpty ?
+                                                                            "No comments yet" :
+                                                                            "You are read all comments")
+            } else {
+                self.data.append(contentsOf: newData)
+                scrollableTableView.reloadData()
+            }
         case .failure(let e):
             //TODO handle error
-            scrollableTableView.tableFooterView = nil
             if (data.isEmpty){
                 scrollableTableView.backgroundView = createErrorView(withError: e)
             } else {
                 scrollableTableView.tableFooterView = createErrorView(withError: e)
             }
-            
             break
         }
     }

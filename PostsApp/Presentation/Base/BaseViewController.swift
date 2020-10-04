@@ -52,6 +52,32 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         scrollableTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
+//    func updateTableView<T>(result: Result<T, Error>, resultSize: Int, dataSize: Int) -> T{
+//        
+//        scrollableTableView.tableFooterView = nil
+//        scrollableTableView.backgroundView = nil
+//        switch result {
+//        case .success(let newData):
+//            if resultSize > 0 {
+//                scrollableTableView.tableFooterView = createNoDataFooter(dataSize == 0 ?
+//                                                                            "No post yet" :
+//                                                                            "You are read all posts")
+//                
+//            } else {
+//                data.append(contentsOf: newData)
+//                scrollableTableView.reloadData()
+//            }
+//        case .failure(let e):
+//            //TODO handle error
+//            if (data.isEmpty){
+//                scrollableTableView.backgroundView = createErrorView(withError: e)
+//            } else {
+//                scrollableTableView.tableFooterView = createErrorView(withError: e)
+//            }
+//            break
+//        }
+//    }
+    
     func createSpinnerFooter() -> UIView {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
         let spinner = UIActivityIndicatorView()
@@ -61,18 +87,16 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         return footerView
     }
     
-    func createErrorView(withError error: Error) -> UIView {
-        return createViewError(withError: error)
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-//        let errorLabel = UILabel(frame: CGRect(x: view.frame.size.width/2, y: view.frame.size.height/2 , width: view.frame.size.width, height: 100))
-//        //errorLabel.text = error.localizedDescription
-//        errorLabel.text = "error happened"
-//        //errorLabel.center = footerView.center
-//        footerView.addSubview(errorLabel)
-//        return footerView
+    func createNoDataFooter(_ message: String) -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 0 , width: view.frame.size.width, height: 100))
+        label.text = message
+        label.center = footerView.center
+        footerView.addSubview(label)
+        return footerView
     }
     
-    func createViewError(withError error: Error) -> UIView {
+    func createErrorView(withError error: Error) -> UIView {
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         let stackView = UIStackView()
@@ -107,6 +131,7 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         let position = scrollView.contentOffset.y
         if position > (scrollableTableView.contentSize.height - scrollView.frame.size.height - 100) {
             scrollableTableView.backgroundView = nil
+            scrollableTableView.tableFooterView = nil
             scrollableTableView.tableFooterView = createSpinnerFooter()
             self.scrollViewHandler()
         }
