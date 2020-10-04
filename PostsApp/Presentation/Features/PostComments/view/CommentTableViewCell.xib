@@ -24,7 +24,7 @@
                             <constraint firstAttribute="height" constant="40" id="F24-Ol-gbk"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AuthorName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-9h-aIt">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AuthorName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-9h-aIt">
                         <rect key="frame" x="72" y="6" width="232" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -69,7 +69,6 @@
                     <constraint firstItem="ARx-JG-DAn" firstAttribute="top" secondItem="rLS-8b-Gcv" secondAttribute="bottom" constant="7" id="tfL-AS-ge5"/>
                     <constraint firstItem="qNs-j8-v9j" firstAttribute="top" secondItem="ARx-JG-DAn" secondAttribute="bottom" constant="5" id="uLD-JE-kpX"/>
                     <constraint firstItem="qNs-j8-v9j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yML-PZ-rH1"/>
-                    <constraint firstAttribute="trailing" secondItem="YeA-9h-aIt" secondAttribute="trailing" constant="16" id="ywj-VX-XE6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
