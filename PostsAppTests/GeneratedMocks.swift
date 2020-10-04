@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 03:44:43 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 04:00:01 +0000
 
 //
 //  RemoteServiceProtocol.swift
@@ -103,7 +103,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 03:44:43 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 04:00:01 +0000
 
 //
 //  PostRepository.swift
@@ -239,7 +239,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 03:44:43 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 04:00:01 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -345,7 +345,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 03:44:43 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 04:00:01 +0000
 
 //
 //  PostDetailViewModel.swift
@@ -451,7 +451,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 03:44:43 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 04:00:01 +0000
 
 //
 //  PostListViewModelProtocol.swift
