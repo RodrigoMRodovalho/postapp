@@ -8,8 +8,8 @@
 import Foundation
 import RxSwift
 
-class PostCommentsViewModel {
-    
+class PostCommentsViewModel: PostCommentsViewModelProtocol {
+        
     let disposeBag = DisposeBag()
     let useCase: GetPostCommentsUseCase
     let observePostCommentsData: PublishSubject<Result<[Comment], Error>> = PublishSubject()

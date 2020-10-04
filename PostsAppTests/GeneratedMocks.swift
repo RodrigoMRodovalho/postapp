@@ -1,4 +1,4 @@
-// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Data/Repository/Remote/service/RemoteServiceProtocol.swift at 2020-10-04 17:43:34 +0000
 
 //
 //  RemoteServiceProtocol.swift
@@ -103,7 +103,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/Repository/PostRepositoryProtocol.swift at 2020-10-04 17:43:34 +0000
 
 //
 //  PostRepository.swift
@@ -239,7 +239,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostCommentsUseCase.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostCommentsUseCase.swift at 2020-10-04 17:43:34 +0000
 
 //
 //  GetPostCommentsUseCase.swift
@@ -345,7 +345,7 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Domain/UseCases/GetPostsUseCase.swift at 2020-10-04 17:43:34 +0000
 
 //
 //  GetPostsUseCase.swift
@@ -451,13 +451,13 @@ import RxSwift
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModel.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostComments/ViewModel/PostCommentsViewModelProtocol.swift at 2020-10-04 17:43:34 +0000
 
 //
-//  PostDetailViewModel.swift
+//  PostCommentViewModelProtocol.swift
 //  PostsApp
 //
-//  Created by Rodrigo Rodovalho on 27/09/20.
+//  Created by Rodrigo Rodovalho on 04/10/20.
 //
 
 import Cuckoo
@@ -467,46 +467,60 @@ import Foundation
 import RxSwift
 
 
- class MockPostCommentsViewModel: PostCommentsViewModel, Cuckoo.ClassMock {
+ class MockPostCommentsViewModelProtocol: PostCommentsViewModelProtocol, Cuckoo.ProtocolMock {
     
-     typealias MocksType = PostCommentsViewModel
+     typealias MocksType = PostCommentsViewModelProtocol
     
-     typealias Stubbing = __StubbingProxy_PostCommentsViewModel
-     typealias Verification = __VerificationProxy_PostCommentsViewModel
+     typealias Stubbing = __StubbingProxy_PostCommentsViewModelProtocol
+     typealias Verification = __VerificationProxy_PostCommentsViewModelProtocol
 
-     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: true)
+     let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
 
     
-    private var __defaultImplStub: PostCommentsViewModel?
+    private var __defaultImplStub: PostCommentsViewModelProtocol?
 
-     func enableDefaultImplementation(_ stub: PostCommentsViewModel) {
+     func enableDefaultImplementation(_ stub: PostCommentsViewModelProtocol) {
         __defaultImplStub = stub
         cuckoo_manager.enableDefaultStubImplementation()
     }
     
 
     
-
+    
+    
+     var observePostCommentsData: PublishSubject<Result<[Comment], Error>> {
+        get {
+            return cuckoo_manager.getter("observePostCommentsData",
+                superclassCall:
+                    
+                    Cuckoo.MockManager.crashOnProtocolSuperclassCall()
+                    ,
+                defaultCall: __defaultImplStub!.observePostCommentsData)
+        }
+        
+    }
     
 
     
+
     
     
-     override func fetchComments(withPost post: Post)  {
+    
+     func fetchComments(withPost post: Post)  {
         
     return cuckoo_manager.call("fetchComments(withPost: Post)",
             parameters: (post),
             escapingParameters: (post),
             superclassCall:
                 
-                super.fetchComments(withPost: post)
+                Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 ,
             defaultCall: __defaultImplStub!.fetchComments(withPost: post))
         
     }
     
 
-	 struct __StubbingProxy_PostCommentsViewModel: Cuckoo.StubbingProxy {
+	 struct __StubbingProxy_PostCommentsViewModelProtocol: Cuckoo.StubbingProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	
 	     init(manager: Cuckoo.MockManager) {
@@ -514,14 +528,19 @@ import RxSwift
 	    }
 	    
 	    
-	    func fetchComments<M1: Cuckoo.Matchable>(withPost post: M1) -> Cuckoo.ClassStubNoReturnFunction<(Post)> where M1.MatchedType == Post {
+	    var observePostCommentsData: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockPostCommentsViewModelProtocol, PublishSubject<Result<[Comment], Error>>> {
+	        return .init(manager: cuckoo_manager, name: "observePostCommentsData")
+	    }
+	    
+	    
+	    func fetchComments<M1: Cuckoo.Matchable>(withPost post: M1) -> Cuckoo.ProtocolStubNoReturnFunction<(Post)> where M1.MatchedType == Post {
 	        let matchers: [Cuckoo.ParameterMatcher<(Post)>] = [wrap(matchable: post) { $0 }]
-	        return .init(stub: cuckoo_manager.createStub(for: MockPostCommentsViewModel.self, method: "fetchComments(withPost: Post)", parameterMatchers: matchers))
+	        return .init(stub: cuckoo_manager.createStub(for: MockPostCommentsViewModelProtocol.self, method: "fetchComments(withPost: Post)", parameterMatchers: matchers))
 	    }
 	    
 	}
 
-	 struct __VerificationProxy_PostCommentsViewModel: Cuckoo.VerificationProxy {
+	 struct __VerificationProxy_PostCommentsViewModelProtocol: Cuckoo.VerificationProxy {
 	    private let cuckoo_manager: Cuckoo.MockManager
 	    private let callMatcher: Cuckoo.CallMatcher
 	    private let sourceLocation: Cuckoo.SourceLocation
@@ -532,6 +551,11 @@ import RxSwift
 	        self.sourceLocation = sourceLocation
 	    }
 	
+	    
+	    
+	    var observePostCommentsData: Cuckoo.VerifyReadOnlyProperty<PublishSubject<Result<[Comment], Error>>> {
+	        return .init(manager: cuckoo_manager, name: "observePostCommentsData", callMatcher: callMatcher, sourceLocation: sourceLocation)
+	    }
 	    
 	
 	    
@@ -544,20 +568,28 @@ import RxSwift
 	}
 }
 
- class PostCommentsViewModelStub: PostCommentsViewModel {
+ class PostCommentsViewModelProtocolStub: PostCommentsViewModelProtocol {
+    
+    
+     var observePostCommentsData: PublishSubject<Result<[Comment], Error>> {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (PublishSubject<Result<[Comment], Error>>).self)
+        }
+        
+    }
     
 
     
 
     
-     override func fetchComments(withPost post: Post)   {
+     func fetchComments(withPost post: Post)   {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
 }
 
 
-// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 04:20:55 +0000
+// MARK: - Mocks generated from file: PostsApp/Presentation/Features/PostList/ViewModel/PostListViewModelProtocol.swift at 2020-10-04 17:43:34 +0000
 
 //
 //  PostListViewModelProtocol.swift

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostCommentsViewController: BaseViewController<PostCommentsViewModel> {
+class PostCommentsViewController: BaseViewController<PostCommentsViewModelProtocol> {
 
     var post: Post?
     private var data = [Comment]()
