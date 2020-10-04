@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Keys
 
 enum ApiPath: Equatable {
     case post
@@ -17,7 +18,7 @@ struct API {
     private let baseUrl = "https://dummyapi.io/data/api"
     
     static let headerAppId = "app-id"
-    static let appId = "5f6fb54fbf3d384bdd89e77a"
+    static let appId = PostsAppKeys().appIDSecret
     
     private let path: ApiPath
     

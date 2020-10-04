@@ -2,6 +2,7 @@ PODS:
   - Cuckoo (1.4.1):
     - Cuckoo/Swift (= 1.4.1)
   - Cuckoo/Swift (1.4.1)
+  - Keys (1.0.1)
   - Kingfisher (5.15.1):
     - Kingfisher/Core (= 5.15.1)
   - Kingfisher/Core (5.15.1)
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Cuckoo
+  - Keys (from `Pods/CocoaPodsKeys`)
   - Kingfisher (~> 5.0)
   - RxBlocking (~> 5)
   - RxSwift (~> 5)
@@ -35,8 +37,13 @@ SPEC REPOS:
     - Swinject
     - TagListView
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
   Cuckoo: 4625f7f54d9bb880123270e8969898d6c1d036b5
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   Kingfisher: 3260a05e78a17fdbeb2f14dd8e66ffc768491231
   RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
@@ -45,6 +52,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
 
-PODFILE CHECKSUM: 0af4be534760ba04f60c233de6380aa5bddb1208
+PODFILE CHECKSUM: 49d1ca3493f6eb1839c28bdb91edb10878920237
 
 COCOAPODS: 1.9.3
