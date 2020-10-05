@@ -34,6 +34,10 @@ PostApp is built using Swift and iOS SDK.
 
 PostApp project contains Unit Tests and UI Tests
 
+| Unit Tests | UI Tests
+:-:|:-:
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/UnitTests.png) | building
+
 ### Installation
 
 Before open in Xcode we need to do some installation steps, go to project root folder using terminal
@@ -58,10 +62,11 @@ As we are using CocoaPods, open **PostsApp.xcworkspace** using Xcode
 
 ### Screenshots
 
-| Light | Dark |
-| ------ | ------ |
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPhonePosts.png)
 
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPhoneComments.png)
 
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPad.png)
 
 License
 ----
