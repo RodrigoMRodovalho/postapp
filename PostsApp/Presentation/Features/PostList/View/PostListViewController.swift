@@ -40,7 +40,6 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
         scrollableTableView.backgroundView = nil
         switch result {
         case .success(let newData):
-            self.data.append(contentsOf: newData)
             if newData.isEmpty {
                 scrollableTableView.tableFooterView = createNoDataFooter(self.data.isEmpty ?
                                                                             Strings.noPostAvailable :
