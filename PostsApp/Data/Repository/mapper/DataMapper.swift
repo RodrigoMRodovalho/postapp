@@ -9,6 +9,16 @@ import Foundation
 
 struct DataMapper {
     
+    let inFormatter = DateFormatter()
+    let outFormatter = DateFormatter()
+    
+    init() {
+        inFormatter.locale = Locale(identifier: "en_US_POSIX")
+        inFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        outFormatter.locale = Locale(identifier: "en_US_POSIX")
+        outFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+    }
+    
     func transform(postResponseModel: PostResponseModel) -> [Post] {
     
         var postArray : [Post] = []
@@ -22,7 +32,7 @@ struct DataMapper {
                             title: data.text,
                             originalUrl: data.link ?? "",
                             likes: data.likes,
-                            createdDatetime: data.publishDate,
+                            createdDatetime: convertDataFormat(fromDateString: data.publishDate),
                             tagList: data.tags!,
                             imageUrl: data.image)
             postArray.append(post)
@@ -41,12 +51,17 @@ struct DataMapper {
                                   authorLastName: data.owner.lastName,
                                   authorPictureUrl: data.owner.picture,
                                   message: data.message,
-                                  createDatetime: data.publishDate)
+                                  createDatetime: convertDataFormat(fromDateString: data.publishDate))
             commentArray.append(comment)
         })
         
         return commentArray
         
     }
-    
+
+    private func convertDataFormat(fromDateString inDate: String) -> String {
+        let date = inFormatter.date(from: inDate)!
+        return outFormatter.string(from: date)
+    }
+ 
 }
