@@ -36,7 +36,7 @@ PostApp project contains Unit Tests and UI Tests
 
 | Unit Tests | UI Tests
 :-:|:-:
-![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/UnitTests.png) | building
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Screenshots/UnitTests.png) | building
 
 ### Installation
 
@@ -62,11 +62,11 @@ As we are using CocoaPods, open **PostsApp.xcworkspace** using Xcode
 
 ### Screenshots
 
-![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPhonePosts.png)
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Screenshots/iPhonePosts.png)
 
-![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPhoneComments.png)
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Screenshots/iPhoneComments.png)
 
-![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Images/iPad.png)
+![alt text](https://github.com/RodrigoMRodovalho/postapp/blob/master/Screenshots/iPad.png)
 
 License
 ----
