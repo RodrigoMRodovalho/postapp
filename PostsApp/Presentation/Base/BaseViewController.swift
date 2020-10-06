@@ -62,11 +62,13 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
     }
     
     func createNoDataFooter(_ message: String) -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        let label = UILabel(frame: CGRect(x: 0, y: 0 , width: view.frame.size.width, height: 100))
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = message
-        label.center = footerView.center
         footerView.addSubview(label)
+        label.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
         return footerView
     }
     
@@ -74,14 +76,16 @@ class BaseViewController<VM>: UIViewController, UIScrollViewDelegate {
         
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         let stackView = UIStackView()
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 30
         footerView.addSubview(stackView)
 
-        stackView.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
         stackView.axis = .vertical
+        
 
         let errorMessage = UILabel()
         errorMessage.numberOfLines = 0

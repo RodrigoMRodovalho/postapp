@@ -49,7 +49,6 @@ class PostListViewController: BaseViewController<PostListViewModelProtocol>{
                 scrollableTableView.reloadData()
             }
         case .failure(let e):
-            //TODO handle error
             if (data.isEmpty){
                 scrollableTableView.backgroundView = createErrorView(withError: e)
             } else {
