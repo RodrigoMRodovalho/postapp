@@ -1,10 +1,10 @@
 # PostApp
 
-PostApp is a iPhone/iPad app that presents post and comments from DummyAPI (https://dummyapi.io/).
+PostApp is an iPhone/iPad app that presents post and comments from DummyAPI (https://dummyapi.io/).
 
 # PostApp Scope
 
-  -  Post List Screen that presents information throght a infinite list fetching new information after reaching bottom of screen.
+  - Post List Screen that presents information through a infinite list fetching new information after reaching bottom of screen.
   - Comment Screen presents comments of a specific Post after a selection in Post List Screen
 
 # Features
@@ -12,16 +12,16 @@ PostApp is a iPhone/iPad app that presents post and comments from DummyAPI (http
   - iPhone and iPad support
   - Infinite Fetching Data for Posts and Comments
   - Dark Mode Support
-  - Multi lanugage support - EN, PT-BR, ES
-  - Multi Screen and Multi Orientation Support
+  - Multi language support - EN, PT-BR, ES
+  - Multi Screen and Multi Orientation Support (portrait and landscape)
 
 # Technical Stack
 
 PostApp is built using Swift and iOS SDK.
 
   - PostApp follow the Clean Architecture and MVVM pattern in Presentation Layer
-  - Layers intergration and asyncronous operations is structure upon RxSwift (https://github.com/ReactiveX/RxSwift) 
-  - Dependency Injection is made upon Swinject (https://github.com/Swinject/Swinject)
+  - Layers integration and asynchronous operations is structure upon RxSwift (https://github.com/ReactiveX/RxSwift) 
+  - Dependency Injection structure is made upon Swinject (https://github.com/Swinject/Swinject)
   - Image Downloading is made using Kingfisher (https://github.com/onevcat/Kingfisher)
   - To present tags list with styled view was used TagListView (https://github.com/ElaWorkshop/TagListView)
   - To generate string resource reference and avoid using string directly was used SwiftGen (https://github.com/SwiftGen/SwiftGen)
