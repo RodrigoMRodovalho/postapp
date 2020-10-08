@@ -73,6 +73,7 @@ As we are using CocoaPods, open **PostsApp.xcworkspace** using Xcode
 - Layout design
 - Specific error handling
 - Add UI tests
+- API Pagination Logic
 
 License
 ----
